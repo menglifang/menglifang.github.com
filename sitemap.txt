@@ -1,0 +1,16 @@
+
+http://menglifang.github.com/archive.html
+http://menglifang.github.com/categories.html
+http://menglifang.github.com/atom.xml
+http://menglifang.github.com/tags.html
+http://menglifang.github.com/pages/about.html
+http://menglifang.github.com/pages/about/index.html
+http://menglifang.github.com/sitemap.txt
+http://menglifang.github.com/pages.html
+http://menglifang.github.com/index.html
+
+http://menglifang.github.com/Technologies/2012/07/15/jekyllcategory
+http://menglifang.github.com/2012/07/15/git-
+http://menglifang.github.com/Lifes/2012/07/15/git
+http://menglifang.github.com/Technologies/2012/07/12/set-up-ruby-ide
+http://menglifang.github.com/lessons/2011/12/29/jekyll-introduction
