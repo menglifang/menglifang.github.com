@@ -884,6 +884,10 @@ pre {
   background-color: #eeeeee;
   border-bottom: 3px solid #dddddd;
   border-right: 2px solid #dddddd;
+  -webkit-box-shadow: 5px 5px 5px 0 #dddddd;
+  -moz-box-shadow: 5px 5px 5px 0 #dddddd;
+  -o-box-shadow: 5px 5px 5px 0 #dddddd;
+  box-shadow: 5px 5px 5px 0 #dddddd;
 }
 .post-panel a {
   text-decoration: none;
