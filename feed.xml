@@ -10,131 +10,6 @@
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Sencha Touch 2 入门</title>
-    <link rel="alternate" href="/blog/2012/08/31/getting-started-with-sencha-touch-2/"/>
-    <id>/blog/2012/08/31/getting-started-with-sencha-touch-2/</id>
-    <published>2012-08-31T00:00:00Z</published>
-    <updated>2012-08-31T00:00:00Z</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <summary type="html">&lt;p&gt;&lt;strong&gt;声明&lt;/strong&gt;：本文翻译自Sencha Touch官方文档。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;英文原版地址&lt;/strong&gt;：&lt;a href="http://docs.sencha.com/touch/2-0/#!/guide/getting_started"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id='toc_sencha-touch'&gt;什么是Sencha Touch&lt;/h3&gt;
-</summary>
-    <content type="html">&lt;p&gt;&lt;strong&gt;声明&lt;/strong&gt;：本文翻译自Sencha Touch官方文档。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;英文原版地址&lt;/strong&gt;：&lt;a href="http://docs.sencha.com/touch/2-0/#!/guide/getting_started"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id='toc_sencha-touch'&gt;什么是Sencha Touch&lt;/h3&gt;
-&lt;p&gt;Sencha
-Touch可以让你快速的开发出基于HTML5技术的移动应用，应用可以同时支持安卓、iOS和黑莓平台。并且使基于浏览器的应用能够提供与本地应用一样的用户体验。&lt;/p&gt;
-&lt;h3 id='toc_'&gt;你需要的东西&lt;/h3&gt;
-&lt;p&gt;首先，你要去Sencha官网下载&lt;a href="http://www.sencha.com/products/touch/download/"&gt;Sencha Touch 2 SDK&lt;/a&gt; 与&lt;a href="http://www.sencha.com/products/sdk-tools/download"&gt;SDK Tools&lt;/a&gt;（可以免费下载），除此之外你还需要：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;能在本地计算机运行的WEB服务器&lt;/li&gt;
-&lt;li&gt;WEB浏览器，推荐Chrome与Safari&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;如果你使用的是基于Windows的IIS，那请注意你必须将&lt;code&gt;application/x-json&lt;/code&gt;添加为MIME类型，以便Sencha Touch正常工作。下面的链接将指导你如何去完成：&lt;a href="http://stackoverflow.com/a/1121114/273985"&gt;http://stackoverflow.com/a/1121114/273985&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id='toc_'&gt;安装&lt;/h3&gt;
-&lt;p&gt;首先，解压SDK文件到你的项目目录。通常你的HTTP服务器应该能够访问该文件夹。例如，你应该能够从你的Web浏览器访问&lt;code&gt;http://localhost/sencha-touch-2.0.0-gpl&lt;/code&gt;来查看Sencha Touch文档。&lt;/p&gt;
-
-&lt;p&gt;你还需要运行SDK Tools安装程序。 SDK Tools会将&lt;code&gt;sencha&lt;/code&gt;这个命令行工具添加&lt;code&gt;path&lt;/code&gt;下，这样就可以通过&lt;code&gt;sencha&lt;/code&gt;命令生成一个新的应用程序模板。要检查你是否已经安装了SDK Tools，切换到Sencha Touch目录，并运行&lt;code&gt;sencha&lt;/code&gt;命令。例如：&lt;/p&gt;
-&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;cd ~/webroot/sencha-touch-2.0.0-gpl/
-sencha
-Sencha Command v2.0.0 for Sencha Touch 2
-Copyright (c) 2012 Sencha Inc.
-...&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 在执行Sencha Touch命令前，必须确保在SDK目录或者生成的Sencha Touch应用程序目录下。&lt;/p&gt;
-&lt;h3 id='toc_'&gt;生成第一个应用程序&lt;/h3&gt;
-&lt;p&gt;现在你已经成功安装Sencha Touch和SDK Tools，那我们现在就来创建一个应用程序。请确定你在Sencha Touch SDK目录下，并执行如下命令：&lt;/p&gt;
-&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;$ sencha generate app GS ../GS
-[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/.senchasdk
-[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/index.html
-[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/app.js
-...&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;这将目录../GS下（在Sencha Touch SDK的上一层目录）生成一个命名空间为GS（Getting Started的缩写）的Sencha Touch应用程序。生成的应用程序中包括你构建一个Touch应用程序需要的所有文件，其中包括默认的&lt;code&gt;index.html&lt;/code&gt;，一份Touch SDK的拷贝，CSS，图片和用于将你的应用程序打包成本地应用的配置文件。&lt;/p&gt;
-
-&lt;p&gt;接着让我们来检查你的应用程序是否能成功在Web浏览器中打开。假设你将SDK解压到了你的web根目录，那么你应该能够通过&lt;code&gt;http://localhost/GS&lt;/code&gt;访问你生成的应用程序：&lt;/p&gt;
-
-&lt;p&gt;//此处应添加一个web浏览器生成的页面&lt;/p&gt;
-&lt;h3 id='toc_'&gt;代码构架的基本构成&lt;/h3&gt;
-&lt;p&gt;用你最喜欢的IDE或文本编辑器打开GS目录，目录结构看起来应该像这样：&lt;/p&gt;
-
-&lt;p&gt;//GS目录结构&lt;/p&gt;
-
-&lt;p&gt;下面是目录和一些文件的具体描述&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;app - 应用程序目录，其中包含：模型，视图，控制器和存储。&lt;/li&gt;
-&lt;li&gt;app.js - 应用程序的入口。&lt;/li&gt;
-&lt;li&gt;app.json - 应用程序的配置文件 -
-Builder用这个文件来生成压缩版的应用程序。&lt;/li&gt;
-&lt;li&gt;index.html - 应用程序的HTML文件。&lt;/li&gt;
-&lt;li&gt;packager.json - 配置文件，Packager使用该文件创建可以发布到应用商店的iOS和安卓的本地应用。&lt;/li&gt;
-&lt;li&gt;resources - 资源目录，其中包含CSS和图像&lt;/li&gt;
-&lt;li&gt;sdk - Sencha Touch SDK的一份拷贝。你应该不需要更改此文件夹里的内容。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在你的编辑器中打开app.js，这是应用程序的主入口点。
-  
-//此处为app.js文档&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;launch&lt;/code&gt;函数为应用程序的入口点。在默认的应用程序中，我们首先隐藏的应用程序加载指示器，然后创建一个主视图的实例，并把它添加到&lt;code&gt;Viewport&lt;/code&gt;中去。&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;Viewport&lt;/code&gt;是一个&lt;code&gt;Card layout&lt;/code&gt;, 你可以将组件添加到应用程序中。默认的应用程序将主视图添加到了&lt;code&gt;Viewport&lt;/code&gt;，所以它在屏幕上是可见的。让我们来看看在主视图里面的代码。&lt;/p&gt;
-
-&lt;p&gt;在代码编辑器中打开&lt;code&gt;app/view/Main.js&lt;/code&gt;，并尝试编辑第10行的内容：&lt;/p&gt;
-&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;title: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home Tab&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;现在编辑第19行内容：&lt;/p&gt;
-&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;title: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Woohoo!&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;另外，在编辑22-26行：&lt;/p&gt;
-&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
-2
-3
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;html: [
-  &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;I changed the default &amp;lt;b&amp;gt;HTML Contents&amp;lt;/b&amp;gt; to something different!&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
-].join(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;现在刷新应用程序，你将看到你对应用程序的修改。&lt;/p&gt;
-
-&lt;p&gt;//浏览器刷新后的web&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
     <title>Sencha Touch 2中的新功能</title>
     <link rel="alternate" href="/blog/2012/08/31/what's-new-in-sencha-touch-2/"/>
     <id>/blog/2012/08/31/what's-new-in-sencha-touch-2/</id>
@@ -248,91 +123,128 @@ text.setLabel(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/spa
 </content>
   </entry>
   <entry>
-    <title>搭建Ruby集成开发环境</title>
-    <link rel="alternate" href="/blog/2012/07/12/set-up-ruby-ide/"/>
-    <id>/blog/2012/07/12/set-up-ruby-ide/</id>
-    <published>2012-07-12T00:00:00Z</published>
-    <updated>2012-07-12T00:00:00Z</updated>
+    <title>Sencha Touch 2 入门</title>
+    <link rel="alternate" href="/blog/2012/08/31/getting-started-with-sencha-touch-2/"/>
+    <id>/blog/2012/08/31/getting-started-with-sencha-touch-2/</id>
+    <published>2012-08-31T00:00:00Z</published>
+    <updated>2012-08-31T00:00:00Z</updated>
     <author>
       <name>Article Author</name>
     </author>
-    <summary type="html">&lt;h3 id='toc_ubuntu'&gt;安装Ubuntu&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;开机启动插入光盘，按F12进入启动设备选择，然后选择从光盘启动。&lt;/li&gt;
-&lt;li&gt;选择语言为英语，然后检查准备情况，要求磁盘空间足够，直接点“继续”按钮。&lt;/li&gt;
-&lt;li&gt;选择安装类型为删除全部并重新安装。&lt;/li&gt;
-&lt;li&gt;接下来进入磁盘分区，此次安装共分四个分区，其各分区属性如下：&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+    <summary type="html">&lt;p&gt;&lt;strong&gt;声明&lt;/strong&gt;：本文翻译自Sencha Touch官方文档。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;英文原版地址&lt;/strong&gt;：&lt;a href="http://docs.sencha.com/touch/2-0/#!/guide/getting_started"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id='toc_sencha-touch'&gt;什么是Sencha Touch&lt;/h3&gt;
 </summary>
-    <content type="html">&lt;h3 id='toc_ubuntu'&gt;安装Ubuntu&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;开机启动插入光盘，按F12进入启动设备选择，然后选择从光盘启动。&lt;/li&gt;
-&lt;li&gt;选择语言为英语，然后检查准备情况，要求磁盘空间足够，直接点“继续”按钮。&lt;/li&gt;
-&lt;li&gt;选择安装类型为删除全部并重新安装。&lt;/li&gt;
-&lt;li&gt;接下来进入磁盘分区，此次安装共分四个分区，其各分区属性如下：&lt;br&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+    <content type="html">&lt;p&gt;&lt;strong&gt;声明&lt;/strong&gt;：本文翻译自Sencha Touch官方文档。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;英文原版地址&lt;/strong&gt;：&lt;a href="http://docs.sencha.com/touch/2-0/#!/guide/getting_started"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id='toc_sencha-touch'&gt;什么是Sencha Touch&lt;/h3&gt;
+&lt;p&gt;Sencha
+Touch可以让你快速的开发出基于HTML5技术的移动应用，应用可以同时支持安卓、iOS和黑莓平台。并且使基于浏览器的应用能够提供与本地应用一样的用户体验。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;你需要的东西&lt;/h3&gt;
+&lt;p&gt;首先，你要去Sencha官网下载&lt;a href="http://www.sencha.com/products/touch/download/"&gt;Sencha Touch 2 SDK&lt;/a&gt; 与&lt;a href="http://www.sencha.com/products/sdk-tools/download"&gt;SDK Tools&lt;/a&gt;（可以免费下载），除此之外你还需要：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;能在本地计算机运行的WEB服务器&lt;/li&gt;
+&lt;li&gt;WEB浏览器，推荐Chrome与Safari&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果你使用的是基于Windows的IIS，那请注意你必须将&lt;code&gt;application/x-json&lt;/code&gt;添加为MIME类型，以便Sencha Touch正常工作。下面的链接将指导你如何去完成：&lt;a href="http://stackoverflow.com/a/1121114/273985"&gt;http://stackoverflow.com/a/1121114/273985&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id='toc_'&gt;安装&lt;/h3&gt;
+&lt;p&gt;首先，解压SDK文件到你的项目目录。通常应该配置HTTP服务器使其能够访问该文件夹。例如，你应该能够从你的Web浏览器访问&lt;code&gt;http://localhost/sencha-touch-2.0.0-gpl&lt;/code&gt;来查看Sencha Touch文档。&lt;/p&gt;
+
+&lt;p&gt;你还需要运行SDK Tools安装程序。 SDK Tools会将&lt;code&gt;sencha&lt;/code&gt;这个命令行工具添加&lt;code&gt;path&lt;/code&gt;下，这样就可以通过&lt;code&gt;sencha&lt;/code&gt;命令生成一个新的应用程序模板。要检查你是否已经安装了SDK Tools，切换到Sencha Touch目录，并运行&lt;code&gt;sencha&lt;/code&gt;命令。例如：&lt;/p&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
   &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
 2
 3
 4
 5
 &lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;  挂载点     主分区/逻辑分区     文件类型      分区容量（MB）
-  /根分区       主分区           ext4         50000
-  /swap分区     主分区           swap         8000
-  /boot分区     主分区           ext2         200 
-  /home分区     主分区           ext4      余下所有容量&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;cd ~/webroot/sencha-touch-2.0.0-gpl/
+sencha
+Sencha Command v2.0.0 for Sencha Touch 2
+Copyright (c) 2012 Sencha Inc.
+...&lt;/pre&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;p&gt;然后进行具体操作，双击“free space”（空闲空间），点击“New partition”（新建分区），每个分区按此步骤利用上述信息进行分区，点击“OK”即可，全部设置完毕后点击“继续”。
-5. 此时询问地区，点击“继续”或选择从地图上选择地区。
-6. 此时是键盘布局，选择“美式键盘”，点击继续。
-7. 这一步输入用户的姓名及密码，输入完成点击“继续”。
-8. 然后继续安装过程，此时Ubuntu会给出相应的系统介绍。
-9. 此时安装完毕，选择重启系统。&lt;/p&gt;
-&lt;h3 id='toc_rvm'&gt;安装RVM&lt;/h3&gt;
-&lt;p&gt;RVM，是Ruby Version Manager的首字母简写，是个ruby版本管理器。如ubuntu系统之前安装了一个ruby，那在你安装了RVM之后还可以使用RVM来安装另一版本的Ruby（可以装很多个不同版本的ruby），然后RVM可以不同版本之间进行切换使用。开始安装rvm&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;安装RVM前我们要安装curl：&lt;code&gt;sudo apt-get install curl&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;由链接&lt;a href="https://rvm.io/rvm/"&gt;https://rvm.io/rvm/&lt;/a&gt;进入官网，安装稳定版：&lt;code&gt;curl -L https://get.rvm.io | bash -s stable&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;此时安装完成，同时已将Git安装上了&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id='toc_ruby'&gt;安装Ruby&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;修改.rvm下的配置信息：&lt;code&gt;vi
-.rvm/config/db&lt;/code&gt;，输入&lt;code&gt;/rubygems&lt;/code&gt;查找rubygems所在行，修改对应的&lt;code&gt;http://&lt;/code&gt;路径为&lt;code&gt;http://rubyforge.org/frs/download.php/76073/rubygems-1.8.24.tgz&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;通过命令可&lt;code&gt;rvm requirements&lt;/code&gt;可得出安装的依赖包，在安装Ruby前要将这些依赖包全部装上。&lt;/li&gt;
-&lt;li&gt;基于rvm安装ruby，即&lt;code&gt;rvm install 1.9.3&lt;/code&gt;（注意，此时可能会出错“RVM is not a function, selecting rubies with &amp;#39;rvm use ...&amp;#39; will not work”，解决方法为修改.bashrc,将source ~/.rvm/scripts/rvm加入到.bashrc最后一行，最后输入“&lt;code&gt;source .bashrc&lt;/code&gt;”这样使得刚添加的内容得以生效）。安装以后加入“source ~/.rvm/scripts/rvm”到“.bashrc”最后一行，此时可以进行版本检测输入“&lt;code&gt;rvm version&lt;/code&gt;”。&lt;/li&gt;
-&lt;li&gt;将ruby1.9.3设为默认的ruby版本，其命令为 &lt;code&gt;rvm --default use 1.9.3&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id='toc_janus'&gt;安装Janus&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;安装vim： &lt;code&gt;sudo apt-get install vim&lt;/code&gt; 。&lt;/li&gt;
-&lt;li&gt;安装Janus前要确保已经安装ack-grep, ctags, git, ruby和rake。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 在执行Sencha Touch命令前，必须确保在SDK目录或者生成的Sencha Touch应用程序目录下。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;生成第一个应用程序&lt;/h3&gt;
+&lt;p&gt;现在你已经成功安装Sencha Touch和SDK Tools，那我们现在就来创建一个应用程序。请确定你在Sencha Touch SDK目录下，并执行如下命令：&lt;/p&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
   &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
 2
 3
 4
+5
 &lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;    # 安装ack-grep
-    sudo apt-get install ack-grep
-    # 安装ctags
-    sudo apt-get install ctags&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;$ sencha generate app GS ../GS
+[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/.senchasdk
+[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/index.html
+[INFO] Created file /Users/nickpoulden/Projects/sencha/GS/app.js
+...&lt;/pre&gt;&lt;/td&gt;
 &lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;ol&gt;
-&lt;li&gt;键入&lt;code&gt;curl -Lo- &amp;lt;https://bit.ly/janus-bootstrap&amp;gt; | bash&lt;/code&gt;进行安装Janus。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id='toc_oh-my-zsh'&gt;安装oh-my-zsh&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;若没有安装zsh要首先安装zsh：&lt;code&gt;sudo apt-get install zsh&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;键入&lt;code&gt;curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh&lt;/code&gt;进行安装oh-my-zsh。修改plugins=(git)为plugins=(git git-flow bundler github heroku rails rails3 ruby rvm gem rake vi-mode)。&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;这将目录../GS下（在Sencha Touch SDK的上一层目录）生成一个命名空间为GS（Getting Started的缩写）的Sencha Touch应用程序。生成的应用程序中包括你构建一个Touch应用程序需要的所有文件，其中包括默认的&lt;code&gt;index.html&lt;/code&gt;，一份Touch SDK的拷贝，CSS，图片和用于将你的应用程序打包成本地应用的配置文件。&lt;/p&gt;
+
+&lt;p&gt;接着让我们来检查你的应用程序是否能成功在Web浏览器中打开。假设你将SDK解压到了你的web根目录，那么你应该能够通过&lt;code&gt;http://localhost/GS&lt;/code&gt;访问你生成的应用程序：&lt;/p&gt;
+
+&lt;p&gt;//此处应添加一个web浏览器生成的页面&lt;/p&gt;
+&lt;h3 id='toc_'&gt;代码构架的基本构成&lt;/h3&gt;
+&lt;p&gt;用你最喜欢的IDE或文本编辑器打开GS目录，目录结构看起来应该像这样：&lt;/p&gt;
+
+&lt;p&gt;//GS目录结构&lt;/p&gt;
+
+&lt;p&gt;下面是目录和一些文件的具体描述&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;app - 应用程序目录，其中包含：模型，视图，控制器和存储。&lt;/li&gt;
+&lt;li&gt;app.js - 应用程序的入口。&lt;/li&gt;
+&lt;li&gt;app.json - 应用程序的配置文件 -
+Builder用这个文件来生成压缩版的应用程序。&lt;/li&gt;
+&lt;li&gt;index.html - 应用程序的HTML文件。&lt;/li&gt;
+&lt;li&gt;packager.json - 配置文件，Packager使用该文件创建可以发布到应用商店的iOS和安卓的本地应用。&lt;/li&gt;
+&lt;li&gt;resources - 资源目录，其中包含CSS和图像&lt;/li&gt;
+&lt;li&gt;sdk - Sencha Touch SDK的一份拷贝。你应该不需要更改此文件夹里的内容。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在你的编辑器中打开app.js，这是应用程序的主入口点。
+  
+//此处为app.js文档&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;launch&lt;/code&gt;函数为应用程序的入口点。在默认的应用程序中，我们首先隐藏的应用程序加载指示器，然后创建一个主视图的实例，并把它添加到&lt;code&gt;Viewport&lt;/code&gt;中去。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Viewport&lt;/code&gt;是一个&lt;code&gt;Card layout&lt;/code&gt;, 你可以将组件添加到应用程序中。默认的应用程序将主视图添加到了&lt;code&gt;Viewport&lt;/code&gt;，所以它在屏幕上是可见的。让我们来看看在主视图里面的代码。&lt;/p&gt;
+
+&lt;p&gt;在代码编辑器中打开&lt;code&gt;app/view/Main.js&lt;/code&gt;，并尝试编辑第10行的内容：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;title: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home Tab&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;现在编辑第19行内容：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;title: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Woohoo!&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;另外，在编辑22-26行：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;html: [
+  &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;I changed the default &amp;lt;b&amp;gt;HTML Contents&amp;lt;/b&amp;gt; to something different!&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;
+].join(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;现在刷新应用程序，你将看到你对应用程序的修改。&lt;/p&gt;
+
+&lt;p&gt;//浏览器刷新后的web&lt;/p&gt;
 </content>
   </entry>
 </feed>
