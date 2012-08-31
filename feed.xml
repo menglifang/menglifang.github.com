@@ -10,119 +10,6 @@
     <name>Blog Author</name>
   </author>
   <entry>
-    <title>Sencha Touch 2中的新功能</title>
-    <link rel="alternate" href="/blog/2012/08/31/what's-new-in-sencha-touch-2/"/>
-    <id>/blog/2012/08/31/what's-new-in-sencha-touch-2/</id>
-    <published>2012-08-31T00:00:00Z</published>
-    <updated>2012-08-31T00:00:00Z</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <summary type="html">&lt;p&gt;这里是Sencha Touch2.0中的一个列表的新特性和功能。&lt;/p&gt;
-
-&lt;p&gt;注：本指南是一个仍在更新中，并没有涵盖所有新的Sencha Touch2.0功能。读者需要经常查看更新。Sencha Touch2目前是开发者的预览版。可能其中会有错误，缺少的功能，和不完整的文件。&lt;/p&gt;
-&lt;h3 id='toc_sencha-touch2-0'&gt;欢迎学习Sencha Touch2.0&lt;/h3&gt;
-&lt;p&gt;Sencha Touch是第一个HTML5移动框架和2.0是其最显着的升级。最重要的性能是焦点的释放 - 获得尽可能多应用程序在设备上运行。应用程序启动速度更快，提供了更迅捷的初始渲染和布局，并且完成一个roatated设备的布局。其他重要的增强功能：&lt;/p&gt;
-</summary>
-    <content type="html">&lt;p&gt;这里是Sencha Touch2.0中的一个列表的新特性和功能。&lt;/p&gt;
-
-&lt;p&gt;注：本指南是一个仍在更新中，并没有涵盖所有新的Sencha Touch2.0功能。读者需要经常查看更新。Sencha Touch2目前是开发者的预览版。可能其中会有错误，缺少的功能，和不完整的文件。&lt;/p&gt;
-&lt;h3 id='toc_sencha-touch2-0'&gt;欢迎学习Sencha Touch2.0&lt;/h3&gt;
-&lt;p&gt;Sencha Touch是第一个HTML5移动框架和2.0是其最显着的升级。最重要的性能是焦点的释放 - 获得尽可能多应用程序在设备上运行。应用程序启动速度更快，提供了更迅捷的初始渲染和布局，并且完成一个roatated设备的布局。其他重要的增强功能：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;一个全新的滚轮，为每个平台进行了优化，速度比以往任何时候都要快 - 尤其是在Android设备上。我们已经优化了渲染过程，应用创新技术来重用现有的组件，而无需新的实例化。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;许多创新的Ext JS4，包括先进的新类系统，可重构的组件和应用程序体系结构的改进。&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;增加设备与WebKit和更强大的平台，随着时间的推移，我们可以用它来支持更多的设备，而不是强调更广泛的支持。
-  
-让我们仔细看看一个这些和其他不同的增强Sencha Touch2.0。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id='toc_'&gt;更小，更快的布局引擎&lt;/h3&gt;
-&lt;p&gt;Sencha Touch，可以很容易地制定出各种设备的形状和大小的应用程序提供了一个非常灵活的布局系统。第2版​​带来的运行更像是优化浏览器的CSS引擎的布局引擎。其结果是极大地提高，表现在几个关键领域：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;应用程序呈现，奠定了更快的启动&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;更新后的画面旋转设备的速度要比Sencha Touch1.x应用程序快的多
-    &lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;布局引擎要小很多，从而导致更快的下载
-    
-所有的布局配置选项从Sencha touch1继续使用新的布局引擎,因此你不需要改变的代码行。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;结果是极大改进布局性能的整体性。在屏幕出现页面能通过应用程序中导航时,给一个更流畅的感受。最引人注目的进步发生在一个设备布局发生方向改变。新的布局引擎是如此之快,我们不得不使用一个高速摄影机来测量它。这里是厨房的水槽按钮的例子运行在1。x和2。x,减缓到四分之一速度:&lt;/p&gt;
-
-&lt;p&gt;//此处为厨房按钮放缓四分之一的图片&lt;/p&gt;
-&lt;h3 id='toc_'&gt;更强大，更聪明的核心&lt;/h3&gt;
-&lt;p&gt;Sencha Touch受益于与Ext JS的共享一个开发环境。 Ext JS4带来了一系列新的创新，建立到Sencha Touch，包括以下内容：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;升级类系统支持动态加载和依赖关系&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;类配置为核心构建的支持 - 为你提供免费的，干净的，一致的API的getter和setter方法&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id='toc_'&gt;更快的启动时间&lt;/h3&gt;
-&lt;p&gt;我们的1.x应用程序有太多的启动项，而要用掉大量的启动时间，所以我们正在竭尽所能去优化与启动无关的。到目前为止，我们现在所能看到在设备上进行测试时能够改善10％至25％的启动时间，我们的厨房水槽的例子。这个应用程序是相当大的，它几乎表明每一个组件的框架。On many devices, it loads almost a second faster in 2.x:
-//此处为图&lt;/p&gt;
-&lt;h3 id='toc_'&gt;类系统和应用程序&lt;/h3&gt;
-&lt;p&gt;Sencha Touch 2使用功能强大的新类系统从Ext JS 4。这提供了动态加载的所有好处,智能构建,只有包括类,那么使用mixin配置,和所有的其他特性的新引擎。有关详细信息,请参见在&lt;a href="Sencha%20Touch%E6%8C%87%E5%8D%97%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%B1%BB"&gt;http://docs.sencha.com/touch/2-0/#!/guide/class_system&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;我们还将在Ext JS 4应用程序体系结构,包括ComponentQuery和生产建设支持。我们没有完成一个完整的开发者与模型-视图-控制器(MVC)打包的beta版本,将添加特性,如深度链接/历史支持在即将到来的预览版和测试版。&lt;/p&gt;
-&lt;h3 id='toc_'&gt;配置驱动组件&lt;/h3&gt;
-&lt;p&gt;配置驱动组件的一个好处是这个新类系统能够建立“款”——简单的属性是自动提供了getter和setter函数,违约,和其他更多。&lt;/p&gt;
-
-&lt;p&gt;Sencha Touch 2利用配置系统在整个框架。你已经知道每当你看到一个配置在一个类,你可以在任何时候重新配置它(即使它呈现)。甚至更好的,因为你已经知道要调用什么函数该配置的setter名称总是遵循相同的模式。&lt;/p&gt;
-
-&lt;p&gt;例如,当我们实例化一个文本字段我们可以给&lt;a href="%E4%B8%80%E4%B8%AA%E6%96%87%E6%9C%AC%E5%AD%97%E6%AE%B5%E6%A0%87%E7%AD%BE"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.field.Text&lt;/a&gt;,然后我们会很容易地知道如何去改变它:&lt;/p&gt;
-&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
-  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-6
-&lt;/pre&gt;&lt;/td&gt;
-  &lt;td class="code"&gt;&lt;pre&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; text = Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Ext.form.Text&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, {
-&lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;My Field&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
-});
-&lt;span class="comment"&gt;//anything we can configure also has a setter function&lt;/span&gt;
-&lt;span class="comment"&gt;//its name always follows the setConfigName pattern&lt;/span&gt;
-text.setLabel(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Another Field&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);&lt;/pre&gt;&lt;/td&gt;
-&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;p&gt;Configs很棒,因为它们给类一个非常干净的API。你看到的每样东西都在“配置选项的API文档对于每个类都有一个真正的配置完成标准化的getter和setter函数。&lt;/p&gt;
-
-&lt;p&gt;对于一个完整的概述的新功能看到&lt;a href="%E7%B1%BB%E7%B3%BB%E7%BB%9F%E6%8C%87%E5%8D%97"&gt;http://docs.sencha.com/touch/2-0/#!/guide/class_system&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id='toc_mvc'&gt;改进的MVC功能&lt;/h3&gt;
-&lt;p&gt;Sencha Touch1 用一个简单的方法来组织你的应用程序在MVC(模型-视图-控制器)行。Sencha Touch 2显著改善,是将全部历史的支持,一个强大的方式来控制组件和一个强大的方法来定制你的应用程序的一个不同的屏幕大小。&lt;/p&gt;
-
-&lt;p&gt;在此之上,包的数据已经被移植到使用新的类系统,使其更加灵活和提高性能。对于一个完整的概述在MVC改善Sencha Touch 2见下面的指南:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="Intro%20to%20Applications"&gt;http://docs.sencha.com/touch/2-0/#!/guide/Intro to Applications&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="Profiles"&gt;http://docs.sencha.com/touch/2-0/#!/guide/profiles&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="Controllers"&gt;http://docs.sencha.com/touch/2-0/#!/guide/controllers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="History%20Support"&gt;http://docs.sencha.com/touch/2-0/#!/guide/History Support&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id='toc_android'&gt;更好的Android支持&lt;/h3&gt;
-&lt;p&gt;Sencha Touch 2带来一个巨大的进步在Android的性能,特别是当涉及到滚动和动画。在Sencha触摸1。x Android设备滚动大的列表明显慢。动画可能震荡和展览出怪异视觉。&lt;/p&gt;
-
-&lt;p&gt;Touch2可以让Android优化机制来实现两个平滑滚动和快速流畅的动画。在本月晚些时候我们将深入探讨SenchaCon这些进步的技术,但现在这里是摩托罗拉的Atrix在Android设备显示出更快的2。x感觉:&lt;/p&gt;
-
-&lt;p&gt;//此处为摩托罗拉的Atrix在在Android设备显示出更快的2。x感觉&lt;/p&gt;
-&lt;h3 id='toc_'&gt;本地包装&lt;/h3&gt;
-&lt;p&gt;最常见的问题之一开发者问在构建应用程序是Sencha联系,“在客户面前我如何得到我的应用程序?“在很多情况下,构建和部署应用程序web正是开发者想要与客户期望的。在另一些情况下,让应用程序在应用程序商店是最快的方式接触到消费者。&lt;/p&gt;
-
-&lt;p&gt;Sencha Touch 2是难以置信地容易构建和部署应用程序,Android的市场都和iOS应用程序商店。今天,随着Sencha Touch 2预览,我们运输一个开发者预览版本的SDK工具2.0。新的SDK工具包括一个新的sencha包命令,使您可以把你的应用程序和软件包 sencha联系起来作为一个应用程序或一个Android APK iOS。实现它是很容易的:一个命令,你的应用程序准备提交给苹果或谷歌的分布。&lt;/p&gt;
-
-&lt;p&gt;这让开发人员的生活变得更容易,在iOS的包装机不需要本机SDK,一个是包不需要原生SDK，这样你就可以打包，而无需下载苹果的SDK。下载SDK工具,您已经准备好构建。如果你部署到Android,您将需要下载从谷歌的Android SDK。开发人员有本机SDK,可以使用SDK工具直接把你的应用程序到iOS和Android模拟器,所以你可以看到你的应用程序将运行在设备。&lt;/p&gt;
-
-&lt;p&gt;SDK工具开发人员预览现在可以在Mac OS X,Windows和Linux的支持将很快加入。我们也会添加设备api,这将使它易于使用的本机功能,比如照相机和联系人等。对于所有的细节如何使用这些新包装功能,看到&lt;a href="%E6%9C%AC%E5%9C%B0%E5%8C%85%E8%A3%85%E4%B8%BAiOS%E5%9C%A8Mac"&gt;http://docs.sencha.com/touch/2-0/#!/guide/native_packaging&lt;/a&gt;和&lt;a href="%E5%8E%9F%E7%94%9FAndroid%E5%8C%85%E8%A3%85"&gt;http://docs.sencha.com/touch/2-0/#!/guide/native_android&lt;/a&gt;。我们认为你和我们一样兴奋，因为你会发现现在是多么容易构建和打包你的web应用程序对于本机分布。&lt;/p&gt;
-&lt;h3 id='toc_'&gt;检修文档&lt;/h3&gt;
-&lt;p&gt;所有的最广泛使用的类在Sencha Touch 2功能优秀的文档正确的API参考。分布在类文档是几十个生活的例子,可以在你的浏览器中正确的运行,让你看到(甚至修改)示例代码。我们还带来了所有的SASS变量为每个组件API文档,使它更容易明白你可以定制。&lt;/p&gt;
-
-&lt;p&gt;We’re shipping 11 &lt;a href="brand%20new%20guides"&gt;http://docs.sencha.com/touch/2-0/#!/guide&lt;/a&gt; out of the box.。我们有指南,解释核心概念(比如布局、组件和类,其他人,介绍如何使用的组件(比如选项卡面板、表单和旋转木马,和一个新的入门指导,带你通过构建你的第一个应用程序从头开始。&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
     <title>Sencha Touch 2 入门</title>
     <link rel="alternate" href="/blog/2012/08/31/getting-started-with-sencha-touch-2/"/>
     <id>/blog/2012/08/31/getting-started-with-sencha-touch-2/</id>
@@ -246,5 +133,280 @@ Builder用这个文件来生成压缩版的应用程序。&lt;/li&gt;
 
 &lt;p&gt;//浏览器刷新后的web&lt;/p&gt;
 </content>
+  </entry>
+  <entry>
+    <title>Sencha Touch 2中的新功能</title>
+    <link rel="alternate" href="/blog/2012/08/31/what's-new-in-sencha-touch-2/"/>
+    <id>/blog/2012/08/31/what's-new-in-sencha-touch-2/</id>
+    <published>2012-08-31T00:00:00Z</published>
+    <updated>2012-08-31T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;p&gt;这里是Sencha Touch2.0中的一个列表的新特性和功能。&lt;/p&gt;
+
+&lt;p&gt;注：本指南是一个仍在更新中，并没有涵盖所有新的Sencha Touch2.0功能。读者需要经常查看更新。Sencha Touch2目前是开发者的预览版。可能其中会有错误，缺少的功能，和不完整的文件。&lt;/p&gt;
+&lt;h3 id='toc_sencha-touch2-0'&gt;欢迎学习Sencha Touch2.0&lt;/h3&gt;
+&lt;p&gt;Sencha Touch是第一个HTML5移动框架和2.0是其最显着的升级。最重要的性能是焦点的释放 - 获得尽可能多应用程序在设备上运行。应用程序启动速度更快，提供了更迅捷的初始渲染和布局，并且完成一个roatated设备的布局。其他重要的增强功能：&lt;/p&gt;
+</summary>
+    <content type="html">&lt;p&gt;这里是Sencha Touch2.0中的一个列表的新特性和功能。&lt;/p&gt;
+
+&lt;p&gt;注：本指南是一个仍在更新中，并没有涵盖所有新的Sencha Touch2.0功能。读者需要经常查看更新。Sencha Touch2目前是开发者的预览版。可能其中会有错误，缺少的功能，和不完整的文件。&lt;/p&gt;
+&lt;h3 id='toc_sencha-touch2-0'&gt;欢迎学习Sencha Touch2.0&lt;/h3&gt;
+&lt;p&gt;Sencha Touch是第一个HTML5移动框架和2.0是其最显着的升级。最重要的性能是焦点的释放 - 获得尽可能多应用程序在设备上运行。应用程序启动速度更快，提供了更迅捷的初始渲染和布局，并且完成一个roatated设备的布局。其他重要的增强功能：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;一个全新的滚轮，为每个平台进行了优化，速度比以往任何时候都要快 - 尤其是在Android设备上。我们已经优化了渲染过程，应用创新技术来重用现有的组件，而无需新的实例化。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;许多创新的Ext JS4，包括先进的新类系统，可重构的组件和应用程序体系结构的改进。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;增加设备与WebKit和更强大的平台，随着时间的推移，我们可以用它来支持更多的设备，而不是强调更广泛的支持。
+  
+让我们仔细看看一个这些和其他不同的增强Sencha Touch2.0。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_'&gt;更小，更快的布局引擎&lt;/h3&gt;
+&lt;p&gt;Sencha Touch，可以很容易地制定出各种设备的形状和大小的应用程序提供了一个非常灵活的布局系统。第2版​​带来的运行更像是优化浏览器的CSS引擎的布局引擎。其结果是极大地提高，表现在几个关键领域：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;应用程序呈现，奠定了更快的启动&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;更新后的画面旋转设备的速度要比Sencha Touch1.x应用程序快的多
+    &lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;布局引擎要小很多，从而导致更快的下载
+    
+所有的布局配置选项从Sencha touch1继续使用新的布局引擎,因此你不需要改变的代码行。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;结果是极大改进布局性能的整体性。在屏幕出现页面能通过应用程序中导航时,给一个更流畅的感受。最引人注目的进步发生在一个设备布局发生方向改变。新的布局引擎是如此之快,我们不得不使用一个高速摄影机来测量它。这里是厨房的水槽按钮的例子运行在1。x和2。x,减缓到四分之一速度:&lt;/p&gt;
+
+&lt;p&gt;//此处为厨房按钮放缓四分之一的图片&lt;/p&gt;
+&lt;h3 id='toc_'&gt;更强大，更聪明的核心&lt;/h3&gt;
+&lt;p&gt;Sencha Touch受益于与Ext JS的共享一个开发环境。 Ext JS4带来了一系列新的创新，建立到Sencha Touch，包括以下内容：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;升级类系统支持动态加载和依赖关系&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;类配置为核心构建的支持 - 为你提供免费的，干净的，一致的API的getter和setter方法&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_'&gt;更快的启动时间&lt;/h3&gt;
+&lt;p&gt;我们的1.x应用程序有太多的启动项，而要用掉大量的启动时间，所以我们正在竭尽所能去优化与启动无关的。到目前为止，我们现在所能看到在设备上进行测试时能够改善10％至25％的启动时间，我们的厨房水槽的例子。这个应用程序是相当大的，它几乎表明每一个组件的框架。On many devices, it loads almost a second faster in 2.x:
+//此处为图&lt;/p&gt;
+&lt;h3 id='toc_'&gt;类系统和应用程序&lt;/h3&gt;
+&lt;p&gt;Sencha Touch 2使用功能强大的新类系统从Ext JS 4。这提供了动态加载的所有好处,智能构建,只有包括类,那么使用mixin配置,和所有的其他特性的新引擎。有关详细信息,请参见在&lt;a href="Sencha%20Touch%E6%8C%87%E5%8D%97%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E7%B1%BB"&gt;http://docs.sencha.com/touch/2-0/#!/guide/class_system&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们还将在Ext JS 4应用程序体系结构,包括ComponentQuery和生产建设支持。我们没有完成一个完整的开发者与模型-视图-控制器(MVC)打包的beta版本,将添加特性,如深度链接/历史支持在即将到来的预览版和测试版。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;配置驱动组件&lt;/h3&gt;
+&lt;p&gt;配置驱动组件的一个好处是这个新类系统能够建立“款”——简单的属性是自动提供了getter和setter函数,违约,和其他更多。&lt;/p&gt;
+
+&lt;p&gt;Sencha Touch 2利用配置系统在整个框架。你已经知道每当你看到一个配置在一个类,你可以在任何时候重新配置它(即使它呈现)。甚至更好的,因为你已经知道要调用什么函数该配置的setter名称总是遵循相同的模式。&lt;/p&gt;
+
+&lt;p&gt;例如,当我们实例化一个文本字段我们可以给&lt;a href="%E4%B8%80%E4%B8%AA%E6%96%87%E6%9C%AC%E5%AD%97%E6%AE%B5%E6%A0%87%E7%AD%BE"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.field.Text&lt;/a&gt;,然后我们会很容易地知道如何去改变它:&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;&lt;span class="keyword"&gt;var&lt;/span&gt; text = Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Ext.form.Text&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, {
+&lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;My Field&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+});
+&lt;span class="comment"&gt;//anything we can configure also has a setter function&lt;/span&gt;
+&lt;span class="comment"&gt;//its name always follows the setConfigName pattern&lt;/span&gt;
+text.setLabel(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Another Field&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Configs很棒,因为它们给类一个非常干净的API。你看到的每样东西都在“配置选项的API文档对于每个类都有一个真正的配置完成标准化的getter和setter函数。&lt;/p&gt;
+
+&lt;p&gt;对于一个完整的概述的新功能看到&lt;a href="%E7%B1%BB%E7%B3%BB%E7%BB%9F%E6%8C%87%E5%8D%97"&gt;http://docs.sencha.com/touch/2-0/#!/guide/class_system&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id='toc_mvc'&gt;改进的MVC功能&lt;/h3&gt;
+&lt;p&gt;Sencha Touch1 用一个简单的方法来组织你的应用程序在MVC(模型-视图-控制器)行。Sencha Touch 2显著改善,是将全部历史的支持,一个强大的方式来控制组件和一个强大的方法来定制你的应用程序的一个不同的屏幕大小。&lt;/p&gt;
+
+&lt;p&gt;在此之上,包的数据已经被移植到使用新的类系统,使其更加灵活和提高性能。对于一个完整的概述在MVC改善Sencha Touch 2见下面的指南:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="Intro%20to%20Applications"&gt;http://docs.sencha.com/touch/2-0/#!/guide/Intro to Applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="Profiles"&gt;http://docs.sencha.com/touch/2-0/#!/guide/profiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="Controllers"&gt;http://docs.sencha.com/touch/2-0/#!/guide/controllers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="History%20Support"&gt;http://docs.sencha.com/touch/2-0/#!/guide/History Support&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_android'&gt;更好的Android支持&lt;/h3&gt;
+&lt;p&gt;Sencha Touch 2带来一个巨大的进步在Android的性能,特别是当涉及到滚动和动画。在Sencha触摸1。x Android设备滚动大的列表明显慢。动画可能震荡和展览出怪异视觉。&lt;/p&gt;
+
+&lt;p&gt;Touch2可以让Android优化机制来实现两个平滑滚动和快速流畅的动画。在本月晚些时候我们将深入探讨SenchaCon这些进步的技术,但现在这里是摩托罗拉的Atrix在Android设备显示出更快的2。x感觉:&lt;/p&gt;
+
+&lt;p&gt;//此处为摩托罗拉的Atrix在在Android设备显示出更快的2。x感觉&lt;/p&gt;
+&lt;h3 id='toc_'&gt;本地包装&lt;/h3&gt;
+&lt;p&gt;最常见的问题之一开发者问在构建应用程序是Sencha联系,“在客户面前我如何得到我的应用程序?“在很多情况下,构建和部署应用程序web正是开发者想要与客户期望的。在另一些情况下,让应用程序在应用程序商店是最快的方式接触到消费者。&lt;/p&gt;
+
+&lt;p&gt;Sencha Touch 2是难以置信地容易构建和部署应用程序,Android的市场都和iOS应用程序商店。今天,随着Sencha Touch 2预览,我们运输一个开发者预览版本的SDK工具2.0。新的SDK工具包括一个新的sencha包命令,使您可以把你的应用程序和软件包 sencha联系起来作为一个应用程序或一个Android APK iOS。实现它是很容易的:一个命令,你的应用程序准备提交给苹果或谷歌的分布。&lt;/p&gt;
+
+&lt;p&gt;这让开发人员的生活变得更容易,在iOS的包装机不需要本机SDK,一个是包不需要原生SDK，这样你就可以打包，而无需下载苹果的SDK。下载SDK工具,您已经准备好构建。如果你部署到Android,您将需要下载从谷歌的Android SDK。开发人员有本机SDK,可以使用SDK工具直接把你的应用程序到iOS和Android模拟器,所以你可以看到你的应用程序将运行在设备。&lt;/p&gt;
+
+&lt;p&gt;SDK工具开发人员预览现在可以在Mac OS X,Windows和Linux的支持将很快加入。我们也会添加设备api,这将使它易于使用的本机功能,比如照相机和联系人等。对于所有的细节如何使用这些新包装功能,看到&lt;a href="%E6%9C%AC%E5%9C%B0%E5%8C%85%E8%A3%85%E4%B8%BAiOS%E5%9C%A8Mac"&gt;http://docs.sencha.com/touch/2-0/#!/guide/native_packaging&lt;/a&gt;和&lt;a href="%E5%8E%9F%E7%94%9FAndroid%E5%8C%85%E8%A3%85"&gt;http://docs.sencha.com/touch/2-0/#!/guide/native_android&lt;/a&gt;。我们认为你和我们一样兴奋，因为你会发现现在是多么容易构建和打包你的web应用程序对于本机分布。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;检修文档&lt;/h3&gt;
+&lt;p&gt;所有的最广泛使用的类在Sencha Touch 2功能优秀的文档正确的API参考。分布在类文档是几十个生活的例子,可以在你的浏览器中正确的运行,让你看到(甚至修改)示例代码。我们还带来了所有的SASS变量为每个组件API文档,使它更容易明白你可以定制。&lt;/p&gt;
+
+&lt;p&gt;We’re shipping 11 &lt;a href="brand%20new%20guides"&gt;http://docs.sencha.com/touch/2-0/#!/guide&lt;/a&gt; out of the box.。我们有指南,解释核心概念(比如布局、组件和类,其他人,介绍如何使用的组件(比如选项卡面板、表单和旋转木马,和一个新的入门指导,带你通过构建你的第一个应用程序从头开始。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Ubuntu 12.04 LTS AMD64下搭建Ruby集成开发环境</title>
+    <link rel="alternate" href="/blog/2012/07/12/set-up-ruby-ide-under-ubuntu-12-04-server-amd64/"/>
+    <id>/blog/2012/07/12/set-up-ruby-ide-under-ubuntu-12-04-server-amd64/</id>
+    <published>2012-07-12T00:00:00Z</published>
+    <updated>2012-07-12T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;h3 id='toc_ubuntu'&gt;安装Ubuntu&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;开机启动插入光盘，按F12进入启动设备选择，然后选择从光盘启动。&lt;/li&gt;
+&lt;li&gt;选择语言为英语，然后检查准备情况，要求磁盘空间足够，直接点“继续”按钮。&lt;/li&gt;
+&lt;li&gt;选择安装类型为删除全部并重新安装。&lt;/li&gt;
+&lt;li&gt;接下来进入磁盘分区，此次安装共分四个分区，其各分区属性如下：&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;</summary>
+    <content type="html">&lt;h3 id='toc_ubuntu'&gt;安装Ubuntu&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;开机启动插入光盘，按F12进入启动设备选择，然后选择从光盘启动。&lt;/li&gt;
+&lt;li&gt;选择语言为英语，然后检查准备情况，要求磁盘空间足够，直接点“继续”按钮。&lt;/li&gt;
+&lt;li&gt;选择安装类型为删除全部并重新安装。&lt;/li&gt;
+&lt;li&gt;接下来进入磁盘分区，此次安装共分四个分区，其各分区属性如下：&lt;br&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;/p&gt;
+&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;挂载点     主分区/逻辑分区     文件类型      分区容量（MB）
+/根分区       主分区           ext4         50000
+/swap分区     主分区           swap         8000
+/boot分区     主分区           ext2         200 
+/home分区     主分区           ext4      余下所有容量&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;然后进行具体操作，双击“free space”（空闲空间），点击“New partition”（新建分区），每个分区按此步骤利用上述信息进行分区，点击“OK”即可，全部设置完毕后点击“继续”。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;此时询问地区，点击“继续”或选择从地图上选择地区。&lt;/li&gt;
+&lt;li&gt;此时是键盘布局，选择“美式键盘”，点击继续。&lt;/li&gt;
+&lt;li&gt;这一步输入用户的姓名及密码，输入完成点击“继续”。&lt;/li&gt;
+&lt;li&gt;然后继续安装过程，此时Ubuntu会给出相应的系统介绍。&lt;/li&gt;
+&lt;li&gt;此时安装完毕，选择重启系统。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_rvm'&gt;安装RVM&lt;/h3&gt;
+&lt;p&gt;RVM，是Ruby Version Manager的首字母简写，是个ruby版本管理器。如ubuntu系统之前安装了一个ruby，那在你安装了RVM之后还可以使用RVM来安装另一版本的Ruby（可以装很多个不同版本的ruby），然后RVM可以不同版本之间进行切换使用。开始安装rvm：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;安装依赖的应用；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sudo apt-get install curl git-core&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;安装RVM；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;curl -L https://get.rvm.io | bash -s stable&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;h3 id='toc_ruby'&gt;安装Ruby&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;安装Ruby依赖；通过运行&lt;code&gt;rvm
+requirements&lt;/code&gt;来查看待安装发行版ruby的依赖安装方法，并安装；&lt;/li&gt;
+&lt;li&gt;安装指定ruby发行版；如：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;# 安装Ruby MRI 1.9.3
+rvm install 1.9.3&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;设置默认的ruby版本。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;rvm --default use 1.9.3&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;如果安装ruby的过程出现rubygems下载不成功（可能因为目标地址被墙），需要修改&lt;code&gt;~/.rvm/config/db&lt;/code&gt;文件，找到&lt;code&gt;rubygems&lt;/code&gt;下载路径配置项，将其修改为&lt;code&gt;http://rubyforge.org/frs/download.php/76073/rubygems-1.8.24.tgz&lt;/code&gt;。如果rubygems版本不一样，请做相应修改。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果执行&lt;code&gt;rvm&lt;/code&gt;命令，出现如下提示：&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;  RVM is not a function, selecting rubies with 'rvm use ...' will not work&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;需要修改~/.bashrc，将&lt;code&gt;source ~/.rvm/scripts/rvm&lt;/code&gt;加入到文件最后，并执行&lt;code&gt;source .bashrc&lt;/code&gt;让配置生效。&lt;/p&gt;
+&lt;h3 id='toc_janus'&gt;安装Janus&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;安装vim；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sudo apt-get install vim&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;安装工具；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sudo apt-get install ack-grep ctags&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;安装Janus。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;curl -Lo- &amp;lt;https://bit.ly/janus-bootstrap&amp;gt; | bash&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;h3 id='toc_oh-my-zsh'&gt;安装oh-my-zsh&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;首先安装zsh；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sudo apt-get install zsh&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;安装oh-my-zsh；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;配置启用的插件。修改~/.zshrc，设置：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;plugins=(git git-flow bundler github heroku rails rails3 ruby rvm gem rake vi-mode)&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;</content>
   </entry>
 </feed>
