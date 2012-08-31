@@ -1,0 +1,186 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>MENGLIFANG.ORG - 搭建Ruby集成开发环境</title>
+    <link href="/stylesheets/ember.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/highlight.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="/">Menglifang</a>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      
+      
+        <div id="sidebar">
+          <div id="articles">
+  <h2>Recent Articles</h2>
+  <ol>
+    
+      <li><a href="/blog/2012/07/12/set-up-ruby-ide/">搭建Ruby集成开发环境</a> <span>Jul 12</span></li>
+    
+  </ol>
+</div>
+
+<div id="tags">
+  <h2>Tags</h2>
+  <ol>
+    
+      <li><a href="/blog/tags/ruby.html">ruby (1)</a></li>
+    
+      <li><a href="/blog/tags/rvm.html">rvm (1)</a></li>
+    
+      <li><a href="/blog/tags/vim.html">vim (1)</a></li>
+    
+      <li><a href="/blog/tags/zsh.html">zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/janus.html">janus (1)</a></li>
+    
+      <li><a href="/blog/tags/ubuntu.html">ubuntu (1)</a></li>
+    
+      <li><a href="/blog/tags/javascript.html">javascript (1)</a></li>
+    
+      <li><a href="/blog/tags/rake.html">rake (1)</a></li>
+    
+      <li><a href="/blog/tags/oh-my-zsh.html">oh-my-zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/git.html">git (1)</a></li>
+    
+      <li><a href="/blog/tags/github.html">github (1)</a></li>
+    
+  </ol>
+</div>
+
+<div id="years">
+  <h2>By Year</h2>
+  <ol>
+    
+      <li><a href="/blog/2012.html">2012 (1)</a></li>
+    
+  </ol>
+</div>
+
+          <div id="back-to-top"><a href="#">&#11014; Back to Top</a></div>
+        </div>
+      
+      <div id="content" class="has-sidebar">
+          <article class="blog-post">
+    <h1>搭建Ruby集成开发环境</h1>
+
+    <h3 id='toc_ubuntu'>安装Ubuntu</h3>
+<ol>
+<li>开机启动插入光盘，按F12进入启动设备选择，然后选择从光盘启动。</li>
+<li>选择语言为英语，然后检查准备情况，要求磁盘空间足够，直接点“继续”按钮。</li>
+<li>选择安装类型为删除全部并重新安装。</li>
+<li>接下来进入磁盘分区，此次安装共分四个分区，其各分区属性如下：<br></li>
+</ol>
+<div class="highlight "><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>  挂载点     主分区/逻辑分区     文件类型      分区容量（MB）
+  /根分区       主分区           ext4         50000
+  /swap分区     主分区           swap         8000
+  /boot分区     主分区           ext2         200 
+  /home分区     主分区           ext4      余下所有容量</pre></td>
+</tr></table>
+</div>
+<p>然后进行具体操作，双击“free space”（空闲空间），点击“New partition”（新建分区），每个分区按此步骤利用上述信息进行分区，点击“OK”即可，全部设置完毕后点击“继续”。
+5. 此时询问地区，点击“继续”或选择从地图上选择地区。
+6. 此时是键盘布局，选择“美式键盘”，点击继续。
+7. 这一步输入用户的姓名及密码，输入完成点击“继续”。
+8. 然后继续安装过程，此时Ubuntu会给出相应的系统介绍。
+9. 此时安装完毕，选择重启系统。</p>
+<h3 id='toc_rvm'>安装RVM</h3>
+<p>RVM，是Ruby Version Manager的首字母简写，是个ruby版本管理器。如ubuntu系统之前安装了一个ruby，那在你安装了RVM之后还可以使用RVM来安装另一版本的Ruby（可以装很多个不同版本的ruby），然后RVM可以不同版本之间进行切换使用。开始安装rvm</p>
+
+<ol>
+<li>安装RVM前我们要安装curl：<code>sudo apt-get install curl</code>。</li>
+<li>由链接<a href="https://rvm.io/rvm/">https://rvm.io/rvm/</a>进入官网，安装稳定版：<code>curl -L https://get.rvm.io | bash -s stable</code>。</li>
+<li>此时安装完成，同时已将Git安装上了</li>
+</ol>
+<h3 id='toc_ruby'>安装Ruby</h3>
+<ol>
+<li>修改.rvm下的配置信息：<code>vi
+.rvm/config/db</code>，输入<code>/rubygems</code>查找rubygems所在行，修改对应的<code>http://</code>路径为<code>http://rubyforge.org/frs/download.php/76073/rubygems-1.8.24.tgz</code>。</li>
+<li>通过命令可<code>rvm requirements</code>可得出安装的依赖包，在安装Ruby前要将这些依赖包全部装上。</li>
+<li>基于rvm安装ruby，即<code>rvm install 1.9.3</code>（注意，此时可能会出错“RVM is not a function, selecting rubies with &#39;rvm use ...&#39; will not work”，解决方法为修改.bashrc,将source ~/.rvm/scripts/rvm加入到.bashrc最后一行，最后输入“<code>source .bashrc</code>”这样使得刚添加的内容得以生效）。安装以后加入“source ~/.rvm/scripts/rvm”到“.bashrc”最后一行，此时可以进行版本检测输入“<code>rvm version</code>”。</li>
+<li>将ruby1.9.3设为默认的ruby版本，其命令为 <code>rvm --default use 1.9.3</code>。</li>
+</ol>
+<h3 id='toc_janus'>安装Janus</h3>
+<ol>
+<li>安装vim： <code>sudo apt-get install vim</code> 。</li>
+<li>安装Janus前要确保已经安装ack-grep, ctags, git, ruby和rake。</li>
+</ol>
+<div class="highlight "><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>    # 安装ack-grep
+    sudo apt-get install ack-grep
+    # 安装ctags
+    sudo apt-get install ctags</pre></td>
+</tr></table>
+</div>
+<ol>
+<li>键入<code>curl -Lo- &lt;https://bit.ly/janus-bootstrap&gt; | bash</code>进行安装Janus。</li>
+</ol>
+<h3 id='toc_oh-my-zsh'>安装oh-my-zsh</h3>
+<ol>
+<li><p>若没有安装zsh要首先安装zsh：<code>sudo apt-get install zsh</code>。</p></li>
+<li><p>键入<code>curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</code>进行安装oh-my-zsh。修改plugins=(git)为plugins=(git git-flow bundler github heroku rails rails3 ruby rvm gem rake vi-mode)。</p></li>
+</ol>
+
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'menglifang'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       })();
+     </script>
+     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+
+      </div>
+    </div> 
+
+    <div id="footer">
+      <div class="info">
+        <div class="copyright">&copy; 2011-2012 www.menglifang.org</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6183006-4']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+</script>
+  </body>
+</html>
