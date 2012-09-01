@@ -1,0 +1,508 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>MENGLIFANG.ORG - 在Ubuntu Server 12.04 LTS AMD64下安装Moosefs</title>
+    <link href="/stylesheets/ember.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/highlight.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="/">Menglifang</a>
+        <div id="sns">
+          <a href="https://github.com/menglifang">Github</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      
+      
+        <div id="sidebar">
+          <div id="articles">
+  <h2>Recent Articles</h2>
+  <ol>
+    
+      <li><a href="/blog/2012/08/31/getting-started-with-sencha-touch-2/">Sencha Touch 2 入门</a> <span>Aug 31</span></li>
+    
+      <li><a href="/blog/2012/07/17/set-up-moosefs-on-ubuntu-12-04-server-amd64/">在Ubuntu Server 12.04 LTS AMD64下安装Moosefs</a> <span>Jul 17</span></li>
+    
+      <li><a href="/blog/2012/07/12/set-up-ruby-ide-on-ubuntu-12-04-server-amd64/">Ubuntu 12.04 LTS AMD64下搭建Ruby集成开发环境</a> <span>Jul 12</span></li>
+    
+  </ol>
+</div>
+
+<div id="tags">
+  <h2>Tags</h2>
+  <ol>
+    
+      <li><a href="/blog/tags/ruby.html">ruby (1)</a></li>
+    
+      <li><a href="/blog/tags/rvm.html">rvm (1)</a></li>
+    
+      <li><a href="/blog/tags/vim.html">vim (1)</a></li>
+    
+      <li><a href="/blog/tags/zsh.html">zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/janus.html">janus (1)</a></li>
+    
+      <li><a href="/blog/tags/ubuntu.html">ubuntu (2)</a></li>
+    
+      <li><a href="/blog/tags/javascript.html">javascript (2)</a></li>
+    
+      <li><a href="/blog/tags/rake.html">rake (1)</a></li>
+    
+      <li><a href="/blog/tags/oh-my-zsh.html">oh-my-zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/git.html">git (1)</a></li>
+    
+      <li><a href="/blog/tags/github.html">github (1)</a></li>
+    
+      <li><a href="/blog/tags/linux.html">linux (1)</a></li>
+    
+      <li><a href="/blog/tags/dfs.html">dfs (1)</a></li>
+    
+      <li><a href="/blog/tags/sencha-touch.html">sencha touch (1)</a></li>
+    
+  </ol>
+</div>
+
+<div id="years">
+  <h2>By Year</h2>
+  <ol>
+    
+      <li><a href="/blog/2012.html">2012 (3)</a></li>
+    
+  </ol>
+</div>
+
+          <div id="back-to-top"><a href="#">&#11014; Back to Top</a></div>
+        </div>
+      
+      <div id="content" class="has-sidebar">
+          <article class="blog-post">
+    <h1>在Ubuntu Server 12.04 LTS AMD64下安装Moosefs</h1>
+
+    <h3 id='toc_mfs-master-server'>mfs主控节点(master server)</h3><h4 id='toc_'>安装说明</h4>
+<ul>
+<li>安装Ubuntu Server 12.04 LTS AMD64</li>
+<li>下载<a href="http://www.moosefs.org/download.html">mfs-1.6.25.tar.gz</a></li>
+<li>安装编译工具和依赖库</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>apt-get install build-essential
+apt-get install zlib1g-dev</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>添加系统用户</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>groupadd mfs
+useradd -g mfs mfs</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>编译并安装</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>cd /usr/src
+tar zxvf mfs-1.6.25.tar.gz
+cd mfs-1.6.25
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib
+--with-default-user=mfs --with-default-group=mfs
+--disable-mfschunkserver --disable-mfsmount
+make &amp;&amp; make install</pre></td>
+</tr></table>
+</div>
+<ul>
+<li><p>配置服务器</p>
+
+<ul>
+<li>通过配置模板创建缺省配置文件</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>cd /etc 
+cp mfsmaster.cfg.dist mfsmaster.cfg
+cp mfsmetalogger.cfg.dist mfsmetalogger.cfg
+cp mfsexports.cfg.dist mfsexports.cfg</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>创建metadata文件</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>cd /var/lib/mfs
+cp metadata.mfs.empty metadata.mfs</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>创建服务器名mfsmaster到IP地址的映射</li>
+</ul>
+<div class="highlight "><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>vi /etc/hosts
+# 例如：
+192.168.1.81  mfsmaster</pre></td>
+</tr></table>
+</div></li>
+<li><p>启动mfsmaster服务、</p></li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>/usr/sbin/mfsmaster start</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>启动Web监控服务</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>/usr/sbin/mfscgiserv</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>通过浏览器访问监控服务，<a href="http://mfsmaster:9425">http://mfsmaster:9425</a></li>
+</ul>
+<h3 id='toc_mfs-metalogger'>mfs备份节点(metalogger)</h3><h4 id='toc_'>安装说明</h4>
+<ul>
+<li>安装Ubuntu Server 12.04 LTS AMD64</li>
+<li>下载<a href="http://www.moosefs.org/download.html">mfs-1.6.25.tar.gz</a></li>
+<li>安装编译工具和依赖库</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>apt-get install build-essential
+apt-get install zlib1g-dev</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>添加系统用户</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>groupadd mfs
+useradd -g mfs mfs</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>编译并安装</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>cd /usr/src
+tar zxvf mfs-1.6.25.tar.gz
+cd mfs-1.6.25
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib
+--with-default-user=mfs --with-default-group=mfs
+--disable-mfschunkserver --disable-mfsmount
+make &amp;&amp; make install</pre></td>
+</tr></table>
+</div>
+<ul>
+<li><p>配置服务器</p>
+
+<ul>
+<li>通过模板创建缺省的metalogger配置文件</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>cp /etc
+cp mfsmetalogger.cfg.dist mfsmetalogger.cfg</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>配置mfsmaster的IP地址</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>vi /etc/hosts
+# 例如
+192.168.1.81  mfsmaster</pre></td>
+</tr></table>
+</div></li>
+<li><p>启动mfsmetalogger服务</p></li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>/usr/sbin/mfsmetalogger start</pre></td>
+</tr></table>
+</div><h3 id='toc_mfs-chunk-server'>mfs数据节点(chunk server)</h3><h4 id='toc_'>安装说明</h4>
+<ul>
+<li>安装Ubuntu Server 12.04 LTS AMD64</li>
+<li>下载<a href="http://www.moosefs.org/download.html">mfs-1.6.25.tar.gz</a></li>
+<li>安装编译工具和依赖库</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>apt-get install build-essential
+apt-get install zlib1g-dev</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>添加系统用户</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>groupadd mfs
+useradd -g mfs mfs</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>编译并安装</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre>cd /usr/src
+tar zxvf mfs-1.6.25.tar.gz
+cd mfs-1.6.25
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib
+--with-default-user=mfs --with-default-group=mfs --disable-mfsmaster
+make &amp;&amp; make install</pre></td>
+</tr></table>
+</div>
+<ul>
+<li><p>配置服务器</p>
+
+<ul>
+<li>通过模板创建缺省的配置文件</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>cp /etc
+cp mfschunkserver.cfg.dist mfschunkserver.cfg
+cp mfshdd.cfg.dist mfshdd.cfg</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>配置挂载的硬盘</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>vi /etc/mfshdd.conf
+# 例如
+/mnt/mfschunks1
+/mnt/mfschunks2</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>配置挂载目录使用户mfs有写权限</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>chown -R mfs:mfs /mnt/mfschunks1
+chown -R mfs:mfs /mnt/mfschunks2</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>配置mfsmaster的IP地址</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>vi /etc/hosts
+# 例如
+192.168.1.81  mfsmaster</pre></td>
+</tr></table>
+</div></li>
+<li><p>启动mfschunkserver服务</p></li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>/usr/sbin/mfschunkserver start</pre></td>
+</tr></table>
+</div><h3 id='toc_'>客户端安装</h3><h4 id='toc_'>安装说明</h4>
+<ul>
+<li>安装Ubuntu Server 12.04 LTS AMD64</li>
+<li>下载<a href="http://sourceforge.net/projects/fuse/files/latest/download">fuse</a></li>
+<li>下载<a href="http://www.moosefs.org/download.html">mfs-1.6.25.tar.gz</a></li>
+<li>安装编译工具和依赖库</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>apt-get install build-essential
+apt-get install zlib1g-dev</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>编译并安装fuse</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>cd /usr/src
+tar zxvf fuse-2.9.0.tar.gz
+./configure
+make &amp;&amp; make install</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>编译并安装mfs</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>cd /usr/src
+tar zxvf mfs-1.6.25.tar.gz
+cd mfs-1.6.25
+./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var/lib
+--with-default-user=mfs --with-default-group=mfs --disable-mfsmaster
+--disable-mfschunkserver
+make &amp;&amp; make install</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>配置mfsmaster的IP地址</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>vi /etc/hosts
+# 例如
+192.168.1.81  mfsmaster</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>挂载MFS文件系统</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>mkdir -p /mnt/mfs
+/usr/bin/mfsmount /mnt/mfs -H mfsmaster</pre></td>
+</tr></table>
+</div>
+<ul>
+<li>查看是否正确挂载</li>
+</ul>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>df -h | grep mfs</pre></td>
+</tr></table>
+</div>
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'menglifang'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       })();
+     </script>
+     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+
+      </div>
+    </div> 
+
+    <div id="footer">
+      <div class="info">
+        <div class="copyright">&copy; 2011-2012 北京梦立方网络科技有限公司</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6183006-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+</script>
+  </body>
+</html>
