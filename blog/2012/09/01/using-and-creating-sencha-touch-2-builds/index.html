@@ -1,0 +1,275 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>MENGLIFANG.ORG - 使用和创建Sencha Touch 2构建</title>
+    <link href="/stylesheets/ember.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/highlight.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="/">Menglifang</a>
+        <div id="sns">
+          <a href="https://github.com/menglifang">Github</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      
+      
+        <div id="sidebar">
+          <div id="articles">
+  <h2>Recent Articles</h2>
+  <ol>
+    
+      <li><a href="/blog/2012/09/03/building-your-first-sencha-touch-app/">建立你的第一个sencha touch应用程序</a> <span>Sep  3</span></li>
+    
+      <li><a href="/blog/2012/09/03/intro-to-applications-with-sencha-touch-2/">Sencha Touch 2的应用</a> <span>Sep  3</span></li>
+    
+      <li><a href="/blog/2012/09/01/using-and-creating-sencha-touch-2-builds/">使用和创建Sencha Touch 2构建</a> <span>Sep  1</span></li>
+    
+      <li><a href="/blog/2012/08/31/getting-started-with-sencha-touch-2/">Sencha Touch 2 入门</a> <span>Aug 31</span></li>
+    
+      <li><a href="/blog/2012/07/17/set-up-moosefs-on-ubuntu-12-04-server-amd64/">在Ubuntu Server 12.04 LTS AMD64下安装Moosefs</a> <span>Jul 17</span></li>
+    
+      <li><a href="/blog/2012/07/12/set-up-ruby-ide-on-ubuntu-12-04-server-amd64/">Ubuntu 12.04 LTS AMD64下搭建Ruby集成开发环境</a> <span>Jul 12</span></li>
+    
+  </ol>
+</div>
+
+<div id="tags">
+  <h2>Tags</h2>
+  <ol>
+    
+      <li><a href="/blog/tags/ruby.html">ruby (1)</a></li>
+    
+      <li><a href="/blog/tags/rvm.html">rvm (1)</a></li>
+    
+      <li><a href="/blog/tags/vim.html">vim (1)</a></li>
+    
+      <li><a href="/blog/tags/zsh.html">zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/janus.html">janus (1)</a></li>
+    
+      <li><a href="/blog/tags/ubuntu.html">ubuntu (2)</a></li>
+    
+      <li><a href="/blog/tags/javascript.html">javascript (5)</a></li>
+    
+      <li><a href="/blog/tags/rake.html">rake (1)</a></li>
+    
+      <li><a href="/blog/tags/oh-my-zsh.html">oh-my-zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/git.html">git (1)</a></li>
+    
+      <li><a href="/blog/tags/github.html">github (1)</a></li>
+    
+      <li><a href="/blog/tags/linux.html">linux (1)</a></li>
+    
+      <li><a href="/blog/tags/dfs.html">dfs (1)</a></li>
+    
+      <li><a href="/blog/tags/sencha-touch.html">sencha touch (4)</a></li>
+    
+  </ol>
+</div>
+
+<div id="years">
+  <h2>By Year</h2>
+  <ol>
+    
+      <li><a href="/blog/2012.html">2012 (6)</a></li>
+    
+  </ol>
+</div>
+
+          <div id="back-to-top"><a href="#">&#11014; Back to Top</a></div>
+        </div>
+      
+      <div id="content" class="has-sidebar">
+          <article class="blog-post">
+    <h1>使用和创建Sencha Touch 2构建</h1>
+
+    <p>Sencha Touch 2有一个全新的类系统，其特点是能够按需动态地加载类。在开发和生产过程中，这能带来许多的好处。</p>
+
+<p>开发过程中，动态加载意味着你得到一个个文件的堆栈跟踪，这使得你能更容易调试应用程序中的问题。对于生产环境下，我们提供了一个构建工具，使你能够轻松地创建一个最小化的自定义构建，它只包括在应用程序中实际被使用的类，这意味着能为你的用户减少加载时间。</p>
+<h3 id='toc_'>选择一个构建</h3>
+<p>Sencha Touch 2提供了5个不同的构建。如果你只是想快速的搭建并运行一个Sencha Touch应用实例，那么最好的方法就是使用<code>sencha-touch-debug.js</code>在本地进行应用开发，待部署到生成环境时，切换到<code>sencha-touch.js</code>。其他三个构建有利于在生成环境下进行调试，或在没有自定义构建的情况下运行生成环境，又或是将1.x的应用程序迁移到2.x的应用程序。</p>
+
+<p>因为每个构建都有其特定的使用目标，所以每个构建都有不同的构建选项。下表可以简单的说明每个构建是被如何配置的：</p>
+
+<p>//此处为FROM表单图</p>
+
+<p>需要注意的是,最近3个版本都包含在下载的SDK的<code>builds</code>目录下。如果上面的表不是让你理解的很明白，这里有一个更加详细的说明，说明每个选项的意思:</p>
+
+<ul>
+<li><p><strong>Type:</strong> 是<code>Core</code>或<code>All</code> ——
+<code>Core</code>包括基类，不包括组件。<code>All</code>则包含了所有。</p></li>
+<li><p><strong>Loader:</strong> 无论自动加载是否被激活。只有<code>sencha-touch.js</code>默认激活。</p></li>
+<li><p><strong>Minified:</strong> 是指构建由YUI的压缩机进行压缩。</p></li>
+<li><p><strong>Comments:</strong>
+是指构建依然包含JSDoc注释（为了在生产环境下的下载速度，注释通常会被删除）</p></li>
+<li><p><strong>Debug:</strong> 是指构建会给你提示你的错误信息，例如当你错误的配置了一个类时。</p></li>
+<li><p><strong>Compat:</strong> 是指与<code>Sencha Touch 1.x</code>有了更好的兼容性。</p></li>
+</ul>
+
+<p>最后，我们应该在开发环境中使用<code>sencha-touch-debug.js</code>，然后在生产环境下切换到<code>sencha-touch.js</code>或<code>sencha-touch-all.js</code>，或者一个自定义的构建。</p>
+<h3 id='toc_'>创建你自己的构建</h3>
+<p>在生产的绝大多数情况下，一个Sencha Touch 2应用程序应该使用一个自定义构建，有二个主要原因:</p>
+
+<ul>
+<li><p>自定义构建只包括你的应用程序中实际使用的框架类，这样节省了下载时间。</p></li>
+<li><p>一个自定义构建只创建一个文件，这个文件包括你所有的应用程序类，这意味着网络请求时只有一个网络请求。</p></li>
+</ul>
+
+<p>原因二特别重要。大多数应用程序有大量的文件（有时会有数百个），请求时会将它们一个接一个的加载，在3G网络，这需要花很长时间。因为由于不同的网络环境，每个请求都有可能导致几百毫秒的延迟，这很容易你的应用程序的整体加载时间增加好几秒。</p>
+
+<p>为确保你的应用程序在生产环境中加载变快，我们创建了<a href="Sencha%20SDK%20Tools">http://www.sencha.com/products/sdk-tools</a>，其中包括一个构建脚本，该脚本会自动执行下面这些动能：</p>
+
+<ul>
+<li><p>指出哪些框架类是在应用程序实际被使用的。</p></li>
+<li><p>指出哪些应用程序类是在应用程序启动时要被加载的。</p></li>
+<li><p>以类的正确顺序，将它们组合在一起放在同一个文件里。</p></li>
+<li><p>删除了所有的JSDoc注释，减少文件的大小使其尽可能小。</p></li>
+</ul>
+<h3 id='toc_sdk'>安装SDK工具</h3>
+<p>如果你还没有安装<code>Sencha SDK Tool</code>，那么你需要先安装，以便你可以创建一个构建。一个快速检验是否已经安装了SDK的方法是打开命令行终端，输入<code>sencha</code> —— 如果已经安装SDK工具你应该可以看到类似如下的信息：</p>
+
+<p>//输入“sencha”有SDK工具就可以看到的内容。图</p>
+
+<p>如果你看到的是错误信息，那么可能是因为没有安装SDK工具。你只需点击下载链接<a href="http://www.sencha.com/products/sdk-tools">http://www.sencha.com/products/sdk-tools</a>，双击下载的文件安装，然后重试<code>sencha</code>命令，这时所有的一切都应该能正常工作了。</p>
+<h3 id='toc_'>生成一个构建</h3>
+<p><strong>注意：</strong> 建立构建步骤预计将在下一个版本中被简化(2.0.0 Beta
+2)，如果这个版本已经发布，请重新查看本文。</p>
+
+<p>我们将假设你已经有一个在本地可用的应用程序，你只是想为生产环境建立构建。如果你还没有一个应用程序或不知道这到底是怎么回事，请看<a href="http://www.menglifang.org/blog/2012/08/31/getting-started-with-sencha-touch-2/">Sencha Touch 2入门</a>。</p>
+
+<p>如果你已经有一个在本地工作的应用程序，那让我们继续。我们将使用<code>Sencha Touch SDK</code>中的Twitter例子来说明这是如何工作的。首先，让我们熟悉这个文件例子的<code>index.html</code>文件：</p>
+<div class="highlight html"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+</pre></td>
+  <td class="code"><pre><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attribute-name">http-equiv</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Content-Type</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">content</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/html; charset=utf-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Twitter<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">resources/css/application.css</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/css</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">touch/sencha-touch-debug.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">app.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span><span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre></td>
+</tr></table>
+</div>
+<p>注意，我们加载了<code>sencha-touch-debug.js</code>和<code>app.js</code>，这种组合能让我们的程序在开发环境中使用动态加载机制，并且是SDK工具可以生成一个最小化的构建的基础。一会儿我们将回到这个html文件的内容。</p>
+
+<p>回到命令行，首先你使用<code>cd</code>进入到你的应用程序在硬盘上的目录：</p>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>cd ~/path/to/my/app</pre></td>
+</tr></table>
+</div>
+<p>接下来，你需要为你的应用程序生成一个jsb文件。这个jsb文件列出了应用程序中用到的所有的类。你应该值得庆幸，SDK工具为你做了这件事：</p>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>sencha create jsb -a index.html -p app.jsb3</pre></td>
+</tr></table>
+</div>
+<p>这个命令需要用到你的<code>index.html</code>文件（在开发过程中，你会用浏览器去浏览的那个文件），找出所有的类的依赖关系并把它们写入到一个名为<code>app.jsb3</code>的文件。到此，我们只需要再执行一个命令来生成这个构建：</p>
+<div class="highlight bash"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>
+</pre></td>
+  <td class="code"><pre>sencha build -p app.jsb3 -d ./</pre></td>
+</tr></table>
+</div>
+<p>这个最后的命令将jsb文件中列出的所有文件组合在一个文件中，并将其尽可能的最小化。该命令的输出是一个名为<code>all-classes.js</code>的文件，这个文件包含了所有的框架类以及你的应用程序类。</p>
+<h3 id='toc_html'>更新你的HTML文件</h3>
+<p>最后一步，你需要更新你的应用程序在生产环境中使用的HTML文件，用<code>sencha-touch.js</code> 代替<code>sencha-touch-debug.js</code>，加载你新生成的<code>all-classes.js</code>。这样我们就完成了Twitter示例:</p>
+<div class="highlight html"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+</pre></td>
+  <td class="code"><pre><span class="doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+  <span class="tag">&lt;meta</span> <span class="attribute-name">http-equiv</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Content-Type</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">content</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/html; charset=utf-8</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Twitter<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;link</span> <span class="attribute-name">rel</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">stylesheet</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">resources/css/application.css</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/css</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">touch/sencha-touch.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">all-classes.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+  <span class="tag">&lt;script</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text/javascript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">app.js</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/script&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span><span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></pre></td>
+</tr></table>
+</div>
+<p>为了不总是改变<code>index.html</code>文件，通常的做法是创建一个名为<code>index-production.html</code>的文件，该文件中包含如上所述的代码。许多开发人员会编写一个简单的部署脚本，将应用程序复制到一个部署文件夹中，并自动将<code>index-production.html</code>重命名为<code>index.html</code>，以便与这个构建可以很容易的上传。</p>
+<h3 id='toc_'>对于开发者来说的变化</h3>
+<p>虽然这只是几个步骤，我们期望下一个Sencha Touch版本能够同时改进工作流程和输出。如果你正在使用Sencha Touch 2.0 beta 1构建，当你升级了以后，请务必重新阅读该文档，因为它的步骤和输出可能会稍有变化。</p>
+
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'menglifang'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       })();
+     </script>
+     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+
+      </div>
+    </div> 
+
+    <div id="footer">
+      <div class="info">
+        <div class="copyright">&copy; 2011-2012 北京梦立方网络科技有限公司</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6183006-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+    </script>
+  </body>
+</html>

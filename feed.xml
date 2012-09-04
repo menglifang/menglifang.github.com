@@ -5,10 +5,1454 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2012-08-31T00:00:00Z</updated>
+  <updated>2012-09-03T00:00:00Z</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>建立你的第一个sencha touch应用程序</title>
+    <link rel="alternate" href="/blog/2012/09/03/building-your-first-sencha-touch-app/"/>
+    <id>/blog/2012/09/03/building-your-first-sencha-touch-app/</id>
+    <published>2012-09-03T00:00:00Z</published>
+    <updated>2012-09-03T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;h3 id='toc_'&gt;准备开始&lt;/h3&gt;
+&lt;p&gt;This guide builds on the Getting Started Guide, which quickly gets you set up with the SDK and ensures your environment is fully functional. If you haven&amp;#39;t been through this yet we suggest reading that guide first (it only takes a few minutes), then come back here to create your first app.&lt;/p&gt;
+</summary>
+    <content type="html">&lt;h3 id='toc_'&gt;准备开始&lt;/h3&gt;
+&lt;p&gt;This guide builds on the Getting Started Guide, which quickly gets you set up with the SDK and ensures your environment is fully functional. If you haven&amp;#39;t been through this yet we suggest reading that guide first (it only takes a few minutes), then come back here to create your first app.&lt;/p&gt;
+
+&lt;p&gt;本指南是建立在&lt;a href="%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;的基础上能让你很快设置好SDK,并确保你的环境是搭配好的能够正常使用。如果你还没有设置好SDK，建议去阅读入门指南(它只需要发费你几分钟的时间),然后你就可以回到这里来创建你的第一个应用程序。&lt;/p&gt;
+
+&lt;p&gt;What we&amp;#39;re going to build&lt;/p&gt;
+&lt;h3 id='toc_'&gt;我们要构建的是什么&lt;/h3&gt;
+&lt;p&gt;Today we&amp;#39;re going to build a simple mobile website-like app that could be used for your company&amp;#39;s mobile site. We&amp;#39;ll add a home page, a contact form and a simple list to fetch our recent blog posts and allow our visitor to read them right there on the phone.&lt;/p&gt;
+
+&lt;p&gt;今天，我们要构建一个简单的应用程序类似于移动网站，它可用于一个公司的移动网站。我们将添加一个主页，联系方式和一个简单的列表来获取我们最近的博客文章，并让我们的游客有权在他们的手机上阅读。&lt;/p&gt;
+
+&lt;p&gt;This is what we&amp;#39;re going to build (it&amp;#39;s interactive, try it yourself):&lt;/p&gt;
+
+&lt;p&gt;这是我们要构建的（你可以自己尝试，这是很有必要的）
+```javascript
+Ext.application({
+    name: &amp;#39;Sencha&amp;#39;,&lt;/p&gt;
+&lt;div class="highlight "&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+24
+25
+26
+27
+28
+29
+&lt;strong&gt;30&lt;/strong&gt;
+31
+32
+33
+34
+35
+36
+37
+38
+39
+&lt;strong&gt;40&lt;/strong&gt;
+41
+42
+43
+44
+45
+46
+47
+48
+49
+&lt;strong&gt;50&lt;/strong&gt;
+51
+52
+53
+54
+55
+56
+57
+58
+59
+&lt;strong&gt;60&lt;/strong&gt;
+61
+62
+63
+64
+65
+66
+67
+68
+69
+&lt;strong&gt;70&lt;/strong&gt;
+71
+72
+73
+74
+75
+76
+77
+78
+79
+&lt;strong&gt;80&lt;/strong&gt;
+81
+82
+83
+84
+85
+86
+87
+88
+89
+&lt;strong&gt;90&lt;/strong&gt;
+91
+92
+93
+94
+95
+96
+97
+98
+99
+&lt;strong&gt;100&lt;/strong&gt;
+101
+102
+103
+104
+105
+106
+107
+108
+109
+&lt;strong&gt;110&lt;/strong&gt;
+111
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;launch: function() {
+    //The whole app UI lives in this tab panel
+    Ext.Viewport.add({
+        xtype: 'tabpanel',
+        fullscreen: true,
+        tabBarPosition: 'bottom',
+        items: [
+            // This is the home page, just some simple html
+            {
+                title: 'Home',
+                iconCls: 'home',
+                cls: 'home',
+                html: [
+                    '&amp;lt;img height=260 src=&amp;quot;http://staging.sencha.com/img/sencha.png&amp;quot; /&amp;gt;',
+                    '&amp;lt;h1&amp;gt;Welcome to Sencha Touch&amp;lt;/h1&amp;gt;',
+                    &amp;quot;&amp;lt;p&amp;gt;Building the Getting Started app&amp;lt;/p&amp;gt;&amp;quot;,
+                    '&amp;lt;h2&amp;gt;Sencha Touch (2.0.0)&amp;lt;/h2&amp;gt;'
+                ].join(&amp;quot;&amp;quot;)
+            },
+            // This is the recent blogs page. It uses a tree store to load its data from blog.json
+            {
+                xtype: 'nestedlist',
+                title: 'Blog',
+                iconCls: 'star',
+                cls: 'blog',
+                displayField: 'title',
+                store: {
+                    type: 'tree',
+                    fields: ['title', 'link', 'author', 'contentSnippet', 'content', {
+                        name: 'leaf',
+                        defaultValue: true
+                    }],
+                    root: {
+                        leaf: false
+                    },
+                    proxy: {
+                        type: 'jsonp',
+                        url: 'https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;amp;q=http://feeds.feedburner.com/SenchaBlog',
+                        reader: {
+                            type: 'json',
+                            rootProperty: 'responseData.feed.entries'
+                        }
+                    }
+                },
+                detailCard: {
+                    xtype: 'panel',
+                    scrollable: true,
+                    styleHtmlContent: true
+                },
+                listeners: {
+                    itemtap: function(nestedList, list, index, element, post) {
+                        this.getDetailCard().setHtml(post.get('content'));
+                    }
+                }
+            },
+            // This is the contact page, which features a form and a button. The button submits the form
+            {
+                xtype: 'formpanel',
+                title: 'Contact Us',
+                iconCls: 'user',
+                url: 'contact.php',
+                layout: 'vbox',
+                items: [
+                    {
+                        xtype: 'fieldset',
+                        title: 'Contact Us',
+                        instructions: 'Email address is optional',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                label: 'Name',
+                                name: 'name'
+                            },
+                            {
+                                xtype: 'emailfield',
+                                label: 'Email',
+                                name: 'email'
+                            },
+                            {
+                                xtype: 'textareafield',
+                                label: 'Message',
+                                name: 'message',
+                                height: 90
+                            }
+                        ]
+                    },
+                    {
+                        xtype: 'button',
+                        text: 'Send',
+                        ui: 'confirm',
+                        // The handler is called when the button is tapped
+                        handler: function() {
+                            // This looks up the items stack above, getting a reference to the first form it see
+                            var form = this.up('formpanel');
+                            // Sends an AJAX request with the form data to the url specified above (contact.php).
+                            // The success callback is called if we get a non-error response from the server
+                            form.submit({
+                                success: function() {
+                                    // The callback function is run when the user taps the 'ok' button
+                                    Ext.Msg.alert('Thank You', 'Your message has been received', function() {
+                                        form.reset();
+                                    });
+                                }
+                            });
+                        }
+                    }
+                ]
+            }
+        ]
+    });
+}&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;});
+```&lt;/p&gt;
+&lt;h3 id='toc_'&gt;开始我们的应用程序&lt;/h3&gt;
+&lt;p&gt;The first thing we need to do is set up our application, just like we did in the Getting Started Guide. The app is using a tab panel that will hold the 4 pages so we&amp;#39;ll start with that:&lt;/p&gt;
+
+&lt;p&gt;我们需要做的第一件事情就是建立我们的应用程序，就像我们在&lt;a href="%E2%80%9C%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97%E2%80%9D"&gt;http://docs.sencha.com/touch/2-0/#!/guide/getting_started&lt;/a&gt;中学习的一样。应用程序正在使用一个&lt;a href="%E6%A0%87%E7%AD%BE%E9%9D%A2%E6%9D%BF"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.tab.Panel&lt;/a&gt;，它将有的4个页面，现在让我们开始：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;html&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Welcome&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;If you run this in the browser (click the Preview button), a TabPanel should appear on top of the screen. The home page could be a bit more welcoming, so let&amp;#39;s add some content to it and reposition the tab bar at the bottom of the page. We do that with the tabBarPosition config and by adding a bit of HTML:&lt;/p&gt;
+
+&lt;p&gt;如果你运行这个浏览器（点击“预览”按钮），在屏幕的顶部应该会出现一个&lt;a href="Tab%20Panel"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.tab.Panel&lt;/a&gt;。这是一个很受欢迎的主页，让我们给它添加一些内容，并重新定位在页面底部的标签栏。我们可以这样配置&lt;a href="tabBarPosition"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.tab.Panel-cfg-tabBarPosition&lt;/a&gt;，并增加了一点的HTML内容：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;html&lt;/span&gt;: [
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;img src=&amp;quot;http://staging.sencha.com/img/sencha.png&amp;quot; /&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h1&amp;gt;Welcome to Sencha Touch&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;p&amp;gt;You're creating the Getting Started app. This demonstrates how &lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;to use tabs, lists and forms to create a simple app&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h2&amp;gt;Sencha Touch (2.0.0)&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                    ].join(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Click the Preview button next to the example to have a look: you should see some HTML content but it won&amp;#39;t look very good. We&amp;#39;ll add a cls config and add it to the panel, adding a CSS class that we can target to make things look better. All of the CSS we&amp;#39;re adding is in the examples/getting_started/index.html file in the SDK download. Here&amp;#39;s how our home page looks now:&lt;/p&gt;
+
+&lt;p&gt;现在你可以点击预览按钮旁边的按钮查看这个例子，你应该能看到一些网页内容，当它不会很好看。我们将添加一个CLS的配置，并把它添加到面板上，增加一个CSS类。我们做的这些事情是为了让这个网页的内容看起来更好看。包括我们添加CSS的例子我们可以到/ getting_started / index.html中去下载。现在让我们刷新我们的页面：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;cls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;html&lt;/span&gt;: [
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;img src=&amp;quot;http://staging.sencha.com/img/sencha.png&amp;quot; /&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h1&amp;gt;Welcome to Sencha Touch&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;p&amp;gt;You're creating the Getting Started app. This demonstrates how &lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;to use tabs, lists and forms to create a simple app&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h2&amp;gt;Sencha Touch 2&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                    ].join(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;h3 id='toc_'&gt;增加博客页面&lt;/h3&gt;
+&lt;p&gt;Now that we have a decent looking home page, it&amp;#39;s time to move on to the next screen. In order to keep the code for each page easy to follow we&amp;#39;re just going to create one tab at a time and then combine them all together again at the end.&lt;/p&gt;
+
+&lt;p&gt;现在,我们有一个看上去很不错的主页,让我们继续下一个页面。为了让每一个页面的代码都去遵守相同的规则，我们仅需要创建一个页面的选项卡,结束时再将它们组合在一起。&lt;/p&gt;
+
+&lt;p&gt;For now, we&amp;#39;ll remove the first tab and replace it with a List. We&amp;#39;re going to be using Google&amp;#39;s Feed API service to fetch the feeds. There&amp;#39;s a bit more code involved this time so first let&amp;#39;s take a look at the result, then we can see how it&amp;#39;s accomplished:&lt;/p&gt;
+
+&lt;p&gt;现在，让我们删除第一个选项卡用一个列表来取代它。我们将使用谷歌的&lt;a href="Feed%20APL%20service"&gt;https://developers.google.com/feed/v1/reference&lt;/a&gt;来获取资料。这将有更多的代码参与这项工作让我们先来看一看，我们将可以看到它是如何完成的：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+24
+25
+26
+27
+28
+29
+&lt;strong&gt;30&lt;/strong&gt;
+31
+32
+33
+34
+35
+36
+37
+38
+39
+&lt;strong&gt;40&lt;/strong&gt;
+41
+42
+43
+44
+45
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;nestedlist&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Blog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;star&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;displayField&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;store&lt;/span&gt;: {
+                        &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;tree&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="key"&gt;fields&lt;/span&gt;: [
+                            &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;link&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;author&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;contentSnippet&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            {&lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;leaf&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="key"&gt;defaultValue&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;}
+                        ],
+                        &lt;span class="key"&gt;root&lt;/span&gt;: {
+                            &lt;span class="key"&gt;leaf&lt;/span&gt;: &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+                        },
+                        &lt;span class="key"&gt;proxy&lt;/span&gt;: {
+                            &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;jsonp&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;url&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;amp;q=http://feeds.feedburner.com/SenchaBlog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;reader&lt;/span&gt;: {
+                                &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;json&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                &lt;span class="key"&gt;rootProperty&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;responseData.feed.entries&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                            }
+                        }
+                    },
+                    &lt;span class="key"&gt;detailCard&lt;/span&gt;: {
+                        &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;panel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="key"&gt;scrollable&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+                        &lt;span class="key"&gt;styleHtmlContent&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;
+                    },
+                    &lt;span class="key"&gt;listeners&lt;/span&gt;: {
+                        &lt;span class="function"&gt;itemtap&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;(nestedList, list, index, element, post) {
+                            &lt;span class="local-variable"&gt;this&lt;/span&gt;.getDetailCard().setHtml(post.get(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;));
+                        }
+                    }
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;You can click the &amp;#39;Code Editor&amp;#39; button above the example to see the full code, but we&amp;#39;ll go over it piece by piece. Instead of a panel we&amp;#39;re using a nestedlist this time, fetching the most recent blog posts from sencha.com/blog. We&amp;#39;re using Nested List so that we can drill down into the blog entry itself by simply tapping on the list.&lt;/p&gt;
+
+&lt;p&gt;你可以点击“代码编辑器”上面的按钮来查看完整的例子代码，它看起来是一块一块的。而不是一个面板，这个时候我们使用&lt;a href="nestedlist_"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.NestedList&lt;/a&gt;，从sencha.com/blog中获取最新的博客。我们使用嵌套列表，这样我们通过点击博客题目就可以进入到博客的具体内容。&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s break down the code above, starting with just the list itself:&lt;/p&gt;
+
+&lt;p&gt;让我们分析一下上面的代码，从列表本身开始：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+24
+25
+26
+27
+28
+29
+&lt;strong&gt;30&lt;/strong&gt;
+31
+32
+33
+34
+35
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;nestedlist&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Blog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;star&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;displayField&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;store&lt;/span&gt;: {
+                        &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;tree&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="key"&gt;fields&lt;/span&gt;: [
+                            &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;link&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;author&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;contentSnippet&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            {&lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;leaf&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="key"&gt;defaultValue&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;}
+                        ],
+                        &lt;span class="key"&gt;root&lt;/span&gt;: {
+                            &lt;span class="key"&gt;leaf&lt;/span&gt;: &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+                        },
+                        &lt;span class="key"&gt;proxy&lt;/span&gt;: {
+                            &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;jsonp&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;url&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;amp;q=http://feeds.feedburner.com/SenchaBlog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;reader&lt;/span&gt;: {
+                                &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;json&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                &lt;span class="key"&gt;rootProperty&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;responseData.feed.entries&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                            }
+                        }
+                    }
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;We&amp;#39;re giving the Nested List a few simple configurations - title, iconCls and displayField - and a more detailed one called store. The Store config tells the nested list how to fetch its data. Let&amp;#39;s go over each store config in turn:&lt;/p&gt;
+
+&lt;p&gt;我们为嵌套列表做几个简单的配置——title、iconCls和displayField——和一个更详细的一种叫做&lt;a href="Store"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.NestedList-cfg-store&lt;/a&gt;。Store配置告诉嵌套列表如何获取它的数据。反过来让我们看一下每个存储配置:&lt;/p&gt;
+
+&lt;p&gt;type: tree creates a tree store, which NestedList uses&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;type:创建树的&lt;a href="tree%20store"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.data.TreeStore&lt;/a&gt;，使用NestedList&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;fields tells the Store what fields we&amp;#39;re expecting in the blog data (title, content, author etc)&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;字段告诉Store哪些字段是我们在博客中期待读取的数据(如标题、内容、作者等)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;proxy tells the Store where to fetch its data from. We&amp;#39;ll examine this more closely in a moment&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;数据代理，将告诉Store在那去读取数据。关于数据代理我们会有更详细的讲解，在这就不做太多的解释&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;root tells the root node it is not a leaf. Above we&amp;#39;d set the leaf defaultValue to true so we need to override that for the root&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在这我们设置根节点为叶子节点，并将defaultValue设置为true隐藏根节点&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Of all the Store configurations, proxy is doing the most work. We&amp;#39;re telling the proxy to use Google&amp;#39;s &lt;a href="Feed%20API%20service"&gt;https://developers.google.com/feed/v1/reference&lt;/a&gt; to return our blog data in JSON-P format. This allows us to easily grab feed data from any blog and view it in our app (for example try swapping the Sencha blog url for http://rss.slashdot.org/Slashdot/slashdot above to see it fetch Slashdot&amp;#39;s feed).&lt;/p&gt;
+
+&lt;p&gt;所有的存储配置,代理所做的大部分工作。是告诉代理如何的去使用谷歌的 Feed API服务上的资料，并以JSON-P的格式返回我们的博客上需要的数据。这让我们能够通过我们的应用程序查看并攫取任何博客上的数据(例如试着交换Sencha blog http://rss.slashdot.org/Slashdot/slashdot上面的url看到获取Slashdot的资料)。&lt;/p&gt;
+
+&lt;p&gt;The last part of the proxy definition was a Reader. The reader is what decodes the response from Google into useful data. When Google sends us back the blog data, they nest it inside a JSON object that looks a bit like this:&lt;/p&gt;
+
+&lt;p&gt;代理定义的最后部分是一个阅读器。读者该怎样解码谷歌的传回来的响应，将传来的数据转化为有用的数据。当谷歌传回我们需要的博客数据，他们会把它们放在一个JSON对象里面，它看起来像这样：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;{
+    &lt;span class="key"&gt;responseData&lt;/span&gt;: {
+        &lt;span class="key"&gt;feed&lt;/span&gt;: {
+            &lt;span class="key"&gt;entries&lt;/span&gt;: [
+                {&lt;span class="key"&gt;author&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Bob&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Great Post&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="key"&gt;content&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Really good content...&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;}
+            ]
+        }
+    }
+}&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The bit we care about is the entries array, so we just set our Reader&amp;#39;s rootProperty to &amp;#39;responseData.feed.entries&amp;#39; and let the framework do the rest.&lt;/p&gt;
+
+&lt;p&gt;我们关心的是数组，所以我们只是将我们的读者&lt;a href="rootProperty"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.data.reader.Json-cfg-rootProperty&lt;/a&gt;属性设置为“responseData.feed.entries&amp;#39;，让框架的继续完成其余的部分。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;数据的挖掘&lt;/h3&gt;
+&lt;p&gt;Now that we have our nested list fetching and showing data, the last thing we need to do is to allow the user to tap on an entry to read it. We&amp;#39;re just going to add two more configurations to our Nested List to finish this off:&lt;/p&gt;
+
+&lt;p&gt;现在，我们有了获取和显示数据的嵌套列表，我们需要做的最后一件事就是让用户点击一个标题进行阅读。我们只要添加几个这样的配置，我们就能够让嵌套列表来完成这个功能：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;{
+    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;nestedlist&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="comment"&gt;//all other configurations as above&lt;/span&gt;
+    &lt;span class="key"&gt;detailCard&lt;/span&gt;: {
+        &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;panel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+        &lt;span class="key"&gt;scrollable&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+        &lt;span class="key"&gt;styleHtmlContent&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;
+    },
+    &lt;span class="key"&gt;listeners&lt;/span&gt;: {
+        &lt;span class="function"&gt;itemtap&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;(nestedList, list, index, element, post) {
+            &lt;span class="local-variable"&gt;this&lt;/span&gt;.getDetailCard().setHtml(post.get(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;));
+        }
+    }
+}&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;Here we&amp;#39;ve just set up a detailCard, which is a useful feature of Nested List that allows you to show a different view when a user taps on an item. We&amp;#39;ve configured our detailCard to be a scrollable Panel that uses styleHtmlContent to make the text look good.&lt;/p&gt;
+
+&lt;p&gt;这里我们刚刚建立了一个&lt;a href="detailCard"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.NestedList-cfg-detailCard&lt;/a&gt;,这是一个很有用的功能,当一个用户点击一个标题的时候会让你的嵌套列表来显示一个不同的观点。这里我们已经配置我们的detailCard是一个可滚动&lt;a href="Panel"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Panel&lt;/a&gt;,使用&lt;a href="styleHtmlContent"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Panel-cfg-styleHtmlContent&lt;/a&gt;这让文本看起来更友好。&lt;/p&gt;
+
+&lt;p&gt;The final piece of the puzzle is adding an itemtap listener, which just calls our function whenever an item is tapped on. All our function does is set the detailCard&amp;#39;s HTML to the content of the post you just tapped on and the framework takes care of the rest, animating the detail card into view to make the post appear. This was the only line of code we had to write to make the blog reader work.&lt;/p&gt;
+
+&lt;p&gt;最后的难题是如何为&lt;a href="itemtap"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.NestedList-event-itemtap&lt;/a&gt;添加事件一个侦听,每一次点击它都能够调用我们的函数。我们所有的功能是设置detailCard的HTML的内容后，你就能点击和让框架负责完成其余,让用户选择点击的博客动态的显示到页面中来。这是作为一个博客系统读取的开发着，是我们不得不写的一行代码。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;建立联系方式&lt;/h3&gt;
+&lt;p&gt;The final thing we&amp;#39;re going to do for our app is create a contact form. We&amp;#39;re just going to take the user&amp;#39;s name, email address and a message, and use a FieldSet to make it look good. The code for this one is simple:&lt;/p&gt;
+
+&lt;p&gt;最后，我们要为我们的应用程序创建一个联系方式。我们需要的是用户的姓名，电子邮件地址和一个信息，并使用&lt;a href="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.form.FieldSet&lt;/a&gt;来管理。下面是具体的代码部分：&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+24
+25
+26
+27
+28
+29
+&lt;strong&gt;30&lt;/strong&gt;
+31
+32
+33
+34
+35
+36
+37
+38
+39
+&lt;strong&gt;40&lt;/strong&gt;
+41
+42
+43
+44
+45
+46
+47
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Contact&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;user&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;url&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;contact.php&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;layout&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;vbox&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;items&lt;/span&gt;: [
+                        {
+                            &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;fieldset&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Contact Us&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;instructions&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;(email address is optional)&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;textfield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Name&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                },
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;emailfield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Email&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                },
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;textareafield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Message&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                }
+                            ]
+                        },
+                        {
+                            &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;button&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;text&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Send&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;ui&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;confirm&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="function"&gt;handler&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+                                &lt;span class="local-variable"&gt;this&lt;/span&gt;.up(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).submit();
+                            }
+                        }
+                    ]
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;This time we&amp;#39;re just creating a form that contains a fieldset. The fieldset contains three fields - one for name, one for email and one for a message. We&amp;#39;ve using a VBox layout, which just arranges the items vertically on the page one above the other.&lt;/p&gt;
+
+&lt;p&gt;这一次,我们创建一个&lt;a href="%E8%A1%A8%E5%8D%95"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.form.Panel&lt;/a&gt;,它包含一个&lt;a href="%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AD%97%E6%AE%B5"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.form.FieldSet&lt;/a&gt;。这个自定义字段包含三个字段——一个名字,一个用于电子邮件和一个用于消息。我们使用一个&lt;a href="VBox%20layout"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.layout.VBox&lt;/a&gt;,vbox layout用于垂直方向的布局&lt;/p&gt;
+
+&lt;p&gt;At the bottom we have a Button with a tap handler. This employs the useful up method, which returns the form panel that the button is inside of. We then just call submit to submit the form, which sends it to the url we specified above (&amp;#39;contact.php&amp;#39;).&lt;/p&gt;
+
+&lt;p&gt;在屏幕的底部有一个&lt;a href="%E6%8C%89%E9%92%AE"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Button&lt;/a&gt;和 &lt;a href="%E5%A4%84%E7%90%86"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Button-cfg-handler&lt;/a&gt;程序。采用这种&lt;a href="%E6%9C%89%E7%94%A8%E7%9A%84%E6%96%B9%E6%B3%95"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Container-method-up&lt;/a&gt;，能让该方法在单击按钮时返回的是表单面板的内部的内容。然后，我们只需要调用&lt;a href="%E6%8F%90%E4%BA%A4"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.form.Panel-method-submit&lt;/a&gt;表单的功能，并将其发送到我们上面指定的URL（“contact.php”）。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;代码的集合&lt;/h3&gt;
+&lt;p&gt;Now that we&amp;#39;ve created each view individually it&amp;#39;s time to bring them all together into our completed app.&lt;/p&gt;
+
+&lt;p&gt;现在，我们要将我们在上面建立的单独的视图放在一起，这样就能完成我们的应用程序。&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+19
+&lt;strong&gt;20&lt;/strong&gt;
+21
+22
+23
+24
+25
+26
+27
+28
+29
+&lt;strong&gt;30&lt;/strong&gt;
+31
+32
+33
+34
+35
+36
+37
+38
+39
+&lt;strong&gt;40&lt;/strong&gt;
+41
+42
+43
+44
+45
+46
+47
+48
+49
+&lt;strong&gt;50&lt;/strong&gt;
+51
+52
+53
+54
+55
+56
+57
+58
+59
+&lt;strong&gt;60&lt;/strong&gt;
+61
+62
+63
+64
+65
+66
+67
+68
+69
+&lt;strong&gt;70&lt;/strong&gt;
+71
+72
+73
+74
+75
+76
+77
+78
+79
+&lt;strong&gt;80&lt;/strong&gt;
+81
+82
+83
+84
+85
+86
+87
+88
+89
+&lt;strong&gt;90&lt;/strong&gt;
+91
+92
+93
+94
+95
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;&lt;span class="comment"&gt;//We've added a third and final item to our tab panel - scroll down to see it&lt;/span&gt;
+Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Sencha&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Ext.tab.Panel&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;, {
+            &lt;span class="key"&gt;fullscreen&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+            &lt;span class="key"&gt;tabBarPosition&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;bottom&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;cls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;home&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;html&lt;/span&gt;: [
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;img width=&amp;quot;65%&amp;quot; src=&amp;quot;http://staging.sencha.com/img/sencha.png&amp;quot; /&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h1&amp;gt;Welcome to Sencha Touch&amp;lt;/h1&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;p&amp;gt;You're creating the Getting Started app. This demonstrates how &lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;to use tabs, lists and forms to create a simple app&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;&amp;lt;h2&amp;gt;Sencha Touch 2&amp;lt;/h2&amp;gt;&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                    ].join(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;)
+                },
+                {
+                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;nestedlist&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Blog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;star&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;displayField&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;store&lt;/span&gt;: {
+                        &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;tree&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="key"&gt;fields&lt;/span&gt;: [
+                            &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;title&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;link&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;author&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;contentSnippet&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            {&lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;leaf&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="key"&gt;defaultValue&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;}
+                        ],
+                        &lt;span class="key"&gt;root&lt;/span&gt;: {
+                            &lt;span class="key"&gt;leaf&lt;/span&gt;: &lt;span class="predefined-constant"&gt;false&lt;/span&gt;
+                        },
+                        &lt;span class="key"&gt;proxy&lt;/span&gt;: {
+                            &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;jsonp&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;url&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;amp;q=http://feeds.feedburner.com/SenchaBlog&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;reader&lt;/span&gt;: {
+                                &lt;span class="key"&gt;type&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;json&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                &lt;span class="key"&gt;rootProperty&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;responseData.feed.entries&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                            }
+                        }
+                    },
+                    &lt;span class="key"&gt;detailCard&lt;/span&gt;: {
+                        &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;panel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                        &lt;span class="key"&gt;scrollable&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;,
+                        &lt;span class="key"&gt;styleHtmlContent&lt;/span&gt;: &lt;span class="predefined-constant"&gt;true&lt;/span&gt;
+                    },
+                    &lt;span class="key"&gt;listeners&lt;/span&gt;: {
+                        &lt;span class="function"&gt;itemtap&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;(nestedList, list, index, element, post) {
+                            &lt;span class="local-variable"&gt;this&lt;/span&gt;.getDetailCard().setHtml(post.get(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;content&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;));
+                        }
+                    }
+                },
+                &lt;span class="comment"&gt;//this is the new item&lt;/span&gt;
+                {
+                    &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Contact&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;iconCls&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;user&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;url&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;contact.php&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;layout&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;vbox&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                    &lt;span class="key"&gt;items&lt;/span&gt;: [
+                        {
+                            &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;fieldset&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;title&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Contact Us&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;instructions&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;(email address is optional)&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;items&lt;/span&gt;: [
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;textfield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Name&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                },
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;emailfield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Email&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                },
+                                {
+                                    &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;textareafield&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                                    &lt;span class="key"&gt;label&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Message&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+                                }
+                            ]
+                        },
+                        {
+                            &lt;span class="key"&gt;xtype&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;button&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;text&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Send&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="key"&gt;ui&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;confirm&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+                            &lt;span class="function"&gt;handler&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+                                &lt;span class="local-variable"&gt;this&lt;/span&gt;.up(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;).submit();
+                            }
+                        }
+                    ]
+                }
+            ]
+        });
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;You can find the full source code of the getting started app in the examples/getting_started folder of the Sencha Touch 2.0 SDK download.&lt;/p&gt;
+
+&lt;p&gt;你也可以在开始下载的Sencha 2.0中examples/getting_started文件夹中找到完整的源代码&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Sencha Touch 2的应用</title>
+    <link rel="alternate" href="/blog/2012/09/03/intro-to-applications-with-sencha-touch-2/"/>
+    <id>/blog/2012/09/03/intro-to-applications-with-sencha-touch-2/</id>
+    <published>2012-09-03T00:00:00Z</published>
+    <updated>2012-09-03T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;p&gt;Sencha Touch 2 is optimized around building applications that work across multiple platforms. To make the writing of applications as simple as possible, we provide a simple but powerful application architecture that leverages the MVC (Model View Controller) pattern. This approach keeps your code clean, testable and easy to maintain, and provides you with a number of benefits when it comes to writing your apps:&lt;/p&gt;
+</summary>
+    <content type="html">&lt;p&gt;Sencha Touch 2 is optimized around building applications that work across multiple platforms. To make the writing of applications as simple as possible, we provide a simple but powerful application architecture that leverages the MVC (Model View Controller) pattern. This approach keeps your code clean, testable and easy to maintain, and provides you with a number of benefits when it comes to writing your apps:&lt;/p&gt;
+
+&lt;p&gt;为了让写应用变的更简单，Sencha Tcouch 2构建了跨越多个平台的优化程序。利用MVC(模型-视图-控制器)模型，为我们提供了一个简单但又非常强大的应用程序体系。这种方式让你在书写代码的时候能够很整洁，可测试性强和易于维护，为你在写应用程序的时候提供了很多好处。&lt;/p&gt;
+
+&lt;p&gt;History Support: full back button support inside your app, and any part of your app can be linked to&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;History Support:在你的应用程序的任何部分都支持返回功能，只要你单击后退按钮就可以返回你以前浏览过的应用程序。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Deep Linking: share deep links that open any screen in your app, just like linking to a web page&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deep Linking:通过分享的深度链接，可以在如何一个屏幕上打开你的应用程序。就想直接链接到一个web首页一样&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Device Profiles: easily customize your application&amp;#39;s UI for phones, tablets and other devices while sharing all of the common code&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Device Profiles:能够轻松的定义你的应用程序在什么样的用户界面上显示如手机,平板电脑或是其他设备。同时也能共享所有的通用代码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_'&gt;应用程序的结构&lt;/h3&gt;
+&lt;p&gt;An Application is a collection of Models, Views, Controllers, Stores and Profiles, plus some additional metadata specifying things like application icons and launch screen images.&lt;/p&gt;
+
+&lt;p&gt;一个应用程序是一个集合，它包括Models, Views, Controllers, Stores and Profiles,在加上一些额外的应用程序图标和启动画面图像数据中指点的类&lt;/p&gt;
+
+&lt;p&gt;Models: represent a type of object in your app - for example an e-commerce app might have models for Users, Products and Orders&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Models:在你的应用程序中是一个类型的对象，例如一个电子商务应用程序中可能是用户，产品订单&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Views: are responsible for displaying data to your users and leverage the built in Components in Sencha Touch&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Views:利用内置的Sencha Touch组件，负责为用户显示数据&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Controllers: handle interaction with your application, listening for user taps and swipes and taking action accordingly&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Controllers:处理每次用户要处理的事件，和应用程序交付并采取相应的处理&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stores: are responsible for loading data into your app and power Components like Lists and DataViews&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Stores:负责加载数据到应用程序和组件中。如列表和DataViews&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Profiles: enable you to easily customize your app&amp;#39;s UI for tablets and phones while sharing as much code as possible&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Profiles:够让你轻松定义你的应用程序在何种界面上显示，如平板电脑或者手机。同时能共享你的共用代码&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The Application is usually the first thing you define in a Sencha Touch application, and looks something like this:&lt;/p&gt;
+
+&lt;p&gt;通常你可以先确定一个Sencha Touch应用程序，可以和这个例子一样&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="key"&gt;models&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;User&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Product&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;nested.Order&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+    &lt;span class="key"&gt;views&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;OrderList&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;OrderDetail&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Main&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+    &lt;span class="key"&gt;controllers&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Orders&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+    &lt;span class="function"&gt;launch&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        Ext.create(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp.view.Main&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;);
+    }
+})&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The name is used to create a single global namespace for your entire application, including all of its models, views, controllers and other classes. For example, an app called MyApp should have its constituent classes follow the pattern MyApp.model.User, MyApp.controller.Users, MyApp.view.Main etc. This keeps your entire app under a single global variable so minimizes the chance of other code on the page conflicting with it.&lt;/p&gt;
+
+&lt;p&gt;这个&lt;a href="%E5%90%8D%E5%AD%97"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-name&lt;/a&gt;是为整个应用程序创建一个单一的全局命名空间,包括所有的models, views, controllers and other classes。例如,一款叫做“MyApp的应用程序应该遵的循模式MyApp.model.User、Myapp.controller.User、Myapp.view.Main等等。这使你的整个应用程序处于在一个全局变量,这会让你的代码和其他页面上的代码有最少可能的相互冲突。&lt;/p&gt;
+
+&lt;p&gt;The Application uses the defined models, views and controllers configurations to automatically load those classes into your app. These follow a simple file structure convention - models are expected to be in the app/model directory, controllers in the app/controller directory and views inside the app/view directory - for example app/model/User.js, app/controllers/Orders.js and app/view/Main.js.&lt;/p&gt;
+
+&lt;p&gt;应用程序使用已经定义好的&lt;a href="models"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-models&lt;/a&gt;, &lt;a href="views"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-views&lt;/a&gt; and &lt;a href="controllers"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-controllers&lt;/a&gt; configurations来自动加载这些类到你的应用程序。这些应该遵循一个简单的文件结构公约——模型预计在app/model directory、控制器在app / controllerdirectory和视图在app /view directory——例如app /model/User.js,app / controllers /Order.js和app /view/Main.js。&lt;/p&gt;
+
+&lt;p&gt;Note that one of the models we specified was different to the others - we specified the full class name (&amp;quot;MyApp.model.nested.Order&amp;quot;). We&amp;#39;re able to specify the full class name for any of those configurations if we don&amp;#39;t follow the normal naming conventions. See the Dependencies section of the Ext.app.Application docs for full details on how to specify custom dependencies.&lt;/p&gt;
+
+&lt;p&gt;注意,我们指定的一个&lt;a href="%E6%A8%A1%E5%9E%8B"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-models&lt;/a&gt;是和其他人不同的——我们指定完整的类名称(“MyApp.model.nested.Order”)。如果我们不遵循正常的命名约定，我们能够自己指定完整的类名的配置。看&lt;a href="%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E9%83%A8%E5%88%86"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application&lt;/a&gt;的&lt;a href="Ext.app.Application"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application&lt;/a&gt;。应用程序文档详细介绍如何指定自定义依赖项。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;控制器&lt;/h3&gt;
+&lt;p&gt;Controllers are the glue the binds an application together. They listen for events fired by the UI and then take some action on it. This helps to keep our code clean and readable, and separates the view logic from the control logic.&lt;/p&gt;
+
+&lt;p&gt;控制器是一个应用程序绑定在一起的粘合剂。它们监听用户界面触发的事件,采取不同的处理。这样有助于使我们的代码清晰和可读性,同时从控制逻辑中分离出视图逻辑。&lt;/p&gt;
+
+&lt;p&gt;For example, let&amp;#39;s say you require users to log in to your app via a login form. The view in this case is the form with all of its fields and other controls. A controller should listen to tap event on the form&amp;#39;s submit button and then perform the authentication itself. Any time we deal with manipulating data or state, the controller should be the class that activates that change, not a view.&lt;/p&gt;
+
+&lt;p&gt;例如,让我们假设你需要你的用户通过你的应用程序中的一个表单登录到你的应用程序。在这种情况下视图就是在本例中所有字段和其他控件的一个集合体。一个控制器应该&lt;a href="%E7%9B%91%E5%90%AC"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Button-event-tap&lt;/a&gt;表单的提交&lt;a href="%E6%8C%89%E9%92%AE"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.Button&lt;/a&gt;的提交事件,然后去执行身份验证。任何时候我们处理操作数据或状态,控制器应该是类,激活,改变,而不是一个视图。&lt;/p&gt;
+
+&lt;p&gt;Controllers expose a small but powerful set of features, and follow a few simple conventions. Each Controller in your application is a subclass of Ext.app.Controller (though you can subclass existing Controllers, so long as it inherits from Ext.app.Controller at some point). Controllers exist in the MyApp.controller.* namespace - for example if your app had a Sessions controller it would be called MyApp.controller.Sessions and exist in the file app/controller/Sessions.js.&lt;/p&gt;
+
+&lt;p&gt;控制器拥有一个小而强大的的特性集,并且它还要遵循一些简单的惯例。在你的应用程序中每个控制器的一个子类都有&lt;a href="Ext.app.Controller"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller&lt;/a&gt;(尽管你现有的子类可以有控制器,但在某种程度上，控制器只它继承自&lt;a href="Ext.app.Controller"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller&lt;/a&gt;)。控制器存在于myapp.controller.*namespace——例如,如果你的应用程序有一个会话控制器将被称为MyApp.controller.Sessions。会话控制器存在于文件app / controller /Sessions.js。&lt;/p&gt;
+
+&lt;p&gt;Although each Controller is a subclass of Ext.app.Controller, each one is instantiated just once by the Application that loaded it. There is only ever one instance of each Controller at any one time and the set of Controller instances is managed internally by the Application. Using Application&amp;#39;s controllers config (as we do above) loads all of the Controllers and instantiates them automatically.&lt;/p&gt;
+
+&lt;p&gt;尽管每个控制器的一个子类&lt;a href="Ext.app.Controller"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller&lt;/a&gt;。每个控制器在&lt;a href="Application"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application&lt;/a&gt;中只有一次被实例化去加载它。There is only ever one instance of each Controller at any one time and the set of Controller instances is managed internally by the Application.。使用应用程序的控制器配置(如我们做以上)自动加载所有的控制器和实例化它们。&lt;/p&gt;
+
+&lt;p&gt;一个小例子&lt;/p&gt;
+
+&lt;p&gt;Here&amp;#39;s how we might quickly define the Sessions controller described above. We&amp;#39;re using 2 Controller configurations here - refs and control. Refs are an easy way to find Components on your page - in this case the Controller will look for all Components that match the formpanel xtype and assign the first one it finds to the loginForm property. We&amp;#39;ll use that property in the doLogin function later.&lt;/p&gt;
+
+&lt;p&gt;这是我们如何快速定义上面描述的会话控制器。我们在这里使用的是2控制器配置——&lt;a href="%E8%A3%81%E5%88%A4"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller-cfg-refs&lt;/a&gt;和&lt;a href="%E6%8E%A7%E5%88%B6"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller-cfg-control&lt;/a&gt;。裁判会使用一个简单的方法来找到你的页面上的组件——在本例中,控制器将寻找所有匹配的&lt;a href="formpanel"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.form.Panel&lt;/a&gt; xtype组件和找到配置的第一个loginForm部分。我们将在doLogin函数之后使用这个属性。&lt;/p&gt;
+
+&lt;p&gt;The second thing it does is set up a control configuration. Just like refs, this uses a ComponentQuery selector to find all formpanel xtypes that contain a button inside them (for example, this will find the Submit button in our hypothetical login form). Whenever any button of this type fires its tap event, our Controller&amp;#39;s doLogin function will be called:&lt;/p&gt;
+
+&lt;p&gt;第二件事就是为它建立一个控制配置。就像裁判,这使用了一个ComponentQuery选择器来找到所有formpanel xtypes,这里面包含一个按钮(例如,这将找到我们登录表单中Submit按钮)。每当任何此类的按钮触发事件被激活,我们控制器的doLogin函数将被调用:&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+13
+14
+15
+16
+17
+18
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.define(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp.controller.Sessions&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, {
+    &lt;span class="key"&gt;extend&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Ext.app.Controller&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="key"&gt;config&lt;/span&gt;: {
+        &lt;span class="key"&gt;refs&lt;/span&gt;: {
+            &lt;span class="key"&gt;loginForm&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+        },
+        &lt;span class="key"&gt;control&lt;/span&gt;: {
+            &lt;span class="key"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;formpanel button&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;: {
+                &lt;span class="key"&gt;tap&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;doLogin&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;
+            }
+        }
+    },
+    &lt;span class="function"&gt;doLogin&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        &lt;span class="keyword"&gt;var&lt;/span&gt; form   = &lt;span class="local-variable"&gt;this&lt;/span&gt;.getLoginForm(),
+            values = form.getValues();
+        MyApp.authenticate(values);
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The doLogin function itself is quite straightforward. Because we defined a &amp;#39;loginForm&amp;#39; ref, the Controller automatically generates a getLoginForm function that returns the formpanel that it matches. Once we have that form reference we just pull the values (username and password) out of it and pass them to an authenticate function. That&amp;#39;s most of what Controllers ever do - listen for events fired (usually by the UI) and kick off some action - in this case authenticating.&lt;/p&gt;
+
+&lt;p&gt;doLogin函数本身是很简单的。因为我们定义了一个“loginForm“ref,控制器会自动生成一个getLoginForm函数,它返回formpanel进行匹配。一旦我们有,我们只需要将其引用,并将其值(用户名和密码)传递到一个身份验证功能。这是大多数做控制器——侦听事件(通常通过UI)和启动一些事件的开始——在这种情况下进行身份验证。&lt;/p&gt;
+
+&lt;p&gt;For more on what Controllers are and what capabilities they possess see the controllers guide.&lt;/p&gt;
+
+&lt;p&gt;更多关于控制器和控制器具体有那些功能，请查看&lt;a href="%E6%8E%A7%E5%88%B6%E5%99%A8%E6%8C%87%E5%8D%97"&gt;http://docs.sencha.com/touch/2-0/#!/guide/controllers&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id='toc_store'&gt;Store&lt;/h3&gt;
+&lt;p&gt;Stores are an important part of Sencha Touch and power most of the data-bound widgets. At its simplest, a Store is not much more than an array of Model instances. Data-bound Components like List and DataView just render one item for each Model instance in the Store. As Model instances are added or removed from the Store events are fired, which the data-bound Components listen to and use to update themselves.&lt;/p&gt;
+
+&lt;p&gt;Stores are an important part of Sencha Touch and power most of the data-bound widgets. At its simplest。简单来说,商店是不超过一个数组的模型实例。数据绑定的组件比如&lt;a href="list"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.List&lt;/a&gt;和&lt;a href="DataView"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.DataView&lt;/a&gt;只是呈现一个Stores对每个模型的实例化。如果Store的事件被触发作为模型的实例将被添加或删除,而监听数据绑定的组件将自己更新。&lt;/p&gt;
+
+&lt;p&gt;While the Stores guide has much more information on what Stores are and how they fit in with Components in your app, there are a couple of specific integration points with your Application instance that you should be aware of. &lt;/p&gt;
+
+&lt;p&gt;尽管&lt;a href="Stores%20guide"&gt;http://docs.sencha.com/touch/2-0/#!/guide/stores&lt;/a&gt;有很多关于store的信息以及它们如何去适应你的应用程序中的组件,还是有几个特定的集成点与你的&lt;a href="%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application&lt;/a&gt;实例,你应该知道的。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;配置文件&lt;/h3&gt;
+&lt;p&gt;Sencha Touch operates across a wide range of devices with differing capabilities and screen sizes.  A user interface that works well on a tablet may not work very well on a phone and vice versa so it makes sense to provide customized views for different device types.  However, we don&amp;#39;t want to have to write our application multiple times just to provide a different UI - we&amp;#39;d like to share as much code as possible. &lt;/p&gt;
+
+&lt;p&gt;Sencha Touch能在不同的功能和屏幕尺寸的设备上工作。但一个运作良好的用户界面,在平板电脑上能很好的工作却在电话上不能良好的工作,反之亦然,因此有必要为不同的设备提供定制的视图。然而,我们不想在我们的应用程序中写多次仅是为了提供一个不同的UI——我们想尽可能多的分享代码。&lt;/p&gt;
+
+&lt;p&gt;Device Profiles are simple classes that enable you to define the different types of devices supported by your app and how they should be handled differently.  They are opt-in, so you can develop your app without profiles at first and add them in later, or never use them at all. Each profile simply defines an isActive function that should return true if that profile should be active on the current device, plus a set of additional models, views and controllers to load if that profile is detected.&lt;/p&gt;
+
+&lt;p&gt;为不同的设备写配置文件是一个简单类,使你能够定义支持不同类型的设备,让应用程序以能够选择它们应该如何处理。所以你在开始开发你的应用程序的时候可以没有配置文件,以后在为它们添加,或从不使用它们。每个概要文件仅仅定义了一个函数,如果概要文件在当前设备上运行或者一组额外的&lt;a href="models"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-models&lt;/a&gt;, &lt;a href="views"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-views&lt;/a&gt; and &lt;a href="controllers"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-controllers&lt;/a&gt;来加载，那么它应该返回&lt;a href="true%20isActive"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-method-isActive&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;To app Profile support to your app you just need to tell your Application about those Profiles and then create Ext.app. Profile subclasses for them: &lt;/p&gt;
+
+&lt;p&gt;应用程序的配置文件要支持你的应用程序,你只需要告诉你的应用程序这些配置文件,然后创建&lt;a href="ext.app.profile"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile&lt;/a&gt;为它们的子类:&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.application({
+    &lt;span class="key"&gt;name&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="key"&gt;profiles&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Phone&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Tablet&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+    &lt;span class="comment"&gt;//as before&lt;/span&gt;
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;By defining the profiles above the Application will load app/profile/Phone. js and app/profile/Tablet.js.  Let&amp;#39;s say that the tablet version of the app enables additional capabilities - for example managing groups.  Here&amp;#39;s an example of how we might define the Tablet profile: &lt;/p&gt;
+
+&lt;p&gt;通过定义概要文件应用程序将加载app/ profile /Phone.js和app / profile /Table.js。这就是说,平板电脑版本的应用程序允许有额外的功能,例如管理组织。下面是一个示例,介绍我们如何定义平板电脑配置文件:&lt;/p&gt;
+&lt;div class="highlight javascript"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;Ext.define(&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp.profile.Tablet&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;, {
+    &lt;span class="key"&gt;extend&lt;/span&gt;: &lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Ext.app.Profile&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;,
+    &lt;span class="key"&gt;config&lt;/span&gt;: {
+        &lt;span class="key"&gt;controllers&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;Groups&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+        &lt;span class="key"&gt;views&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;GroupAdmin&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;],
+        &lt;span class="key"&gt;models&lt;/span&gt;: [&lt;span class="string"&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;span class="content"&gt;MyApp.model.Group&lt;/span&gt;&lt;span class="delimiter"&gt;'&lt;/span&gt;&lt;/span&gt;]
+    },
+    &lt;span class="function"&gt;isActive&lt;/span&gt;: &lt;span class="keyword"&gt;function&lt;/span&gt;() {
+        &lt;span class="keyword"&gt;return&lt;/span&gt; Ext.os.is.Tablet;
+    }
+});&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;The isActive function will return true whenever the application is run on what Sencha Touch determines to be a tablet.  This is a slightly subjective determination because there is a near-continuous spectrum of device shapes and sizes with no clear cutoff between phones and tablets.  Because there is no foolproof way to state which devices are tablets and which are phones, Sencha Touch&amp;#39;s Ext.os.is. Tablet is set to true when running on an iPad and false otherwise.  If you need more fine grained control it&amp;#39;s easy to provide any implementation you like inside your isActive function, so long as it returns true or false. &lt;/p&gt;
+
+&lt;p&gt;如果应用程序决定运行是Sencha Touch平板电脑，那么isActive函数将返回true。这是一个有点主观判断,因为有一个不明确的频谱形状和尺寸的设备在手机和平板电脑不断切换。因为没有绝对安全方式说明哪些设备是平板电脑和那些是手机,当运行在一台iPad的时候Sencha Touch的ext.os.is设置为true时,否则则返回false。如果你需要更多精细的控制也可以很容易实现，只要你喜欢在你isActive函数,它只返回true或false。&lt;/p&gt;
+
+&lt;p&gt;You should make sure that only one of your Profiles returns true from its isActive function.  If more than one of them returns true, only the first one that does so will be counted and the rest ignored.  The first one that returns true will be set as the Application&amp;#39;s currentProfile, which can be queried at any time. &lt;/p&gt;
+
+&lt;p&gt;你应该确保你的配置文件中，只有一个返回true 的isActive功能。如果不止一个返回true,那么只有第一个,会被系统记录,其余的会被忽视。第一个返回true将被设置为应用程序的&lt;a href="currentProfile"&gt;http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-currentProfile&lt;/a&gt;,这样它就能被随时的查询。&lt;/p&gt;
+
+&lt;p&gt;If the detected currentProfile has defined additional models, views, controllers and stores these will be automatically loaded by the Application, along with all of the models, views and controllers defined on the Application itself.  However, all of the dependencies named in the Profile will be prepended with the Profile name unless the fully-qualified class name is provided.  For example: &lt;/p&gt;
+
+&lt;p&gt;如果检测到currentProfile附近有定义的models, views, controllers and stores这些将会被自动加载到应用程序,以及应用程序本身所有定义的models, views and controllers。然而,所有的依赖在命名文件中的文件将被添加到配置文件,除非完全合格的类名。例如:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;views: [&amp;#39;GroupAdmin&amp;#39;] will load app/view/tablet/GroupAdmin.js&lt;/li&gt;
+&lt;li&gt;controllers: [&amp;#39;Groups&amp;#39;] will load app/controller/tablet/Groups.js&lt;/li&gt;
+&lt;li&gt;models: [&amp;#39;MyApp.model.Group&amp;#39;] will load app/model/Group.js&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Most of the time a Profile will only define additional controllers and views as the models and stores are typically shared between all variants of the app. For a more detailed discussion of Profiles see the device profiles guide. &lt;/p&gt;
+
+&lt;p&gt;大多数时候一个配置文件只会额外定义的控制器和视图的模型，和商店通常是通过不同的应用能够程序来共享应用。如果需要更详细的讨论配置文件可以去看&lt;a href="%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE%E6%8C%87%E5%AF%BC"&gt;http://docs.sencha.com/touch/2-0/#!/guide/profiles&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;启动&lt;/h3&gt;
+&lt;p&gt;Each Application can define a launch function, which is called as soon as all of your app&amp;#39;s classes have been loaded and the app is ready to be launched.  This is usually the best place to put any application startup logic, typically creating the main view structure for your app. &lt;/p&gt;
+
+&lt;p&gt;当你所有的应用程序的类都已经加载和应用程序都准备好了，那么应用程序可以定义一个启动功能。这通常是最好的场合来存放你的应用程序启动逻辑,让你的应用程序创建主要视图结构。&lt;/p&gt;
+
+&lt;p&gt;In addition to the Application launch function, there are two other places you can put app startup logic.  Firstly, each Controller is able to define an init function, which is called before the Application launch function.  Secondly, if you are using Device Profiles, each Profile can define a launch function, which is called after the Controller init functions but before the Application launch function.&lt;/p&gt;
+
+&lt;p&gt;除了应用程序启动功能,另外还有两个地方你可以定义应用程序启动逻辑。首先,每个控制器要能够定义一个init函数,它被称为应用程序启动之前的函数。其次,如果你正在使用的设备配置文件,每个文件也可以定义一个启动功能,但在应用程序启动功能前，之后调用控制器init函数。&lt;/p&gt;
+
+&lt;p&gt;Note that only the active Profile has its launch function called - for example if you define profiles for Phone and Tablet and then launch the app on a tablet, only the Tablet Profile&amp;#39;s launch function is called.&lt;/p&gt;
+
+&lt;p&gt;注意,只有当前文件有被称为启动功能——例如,如果你定义配置文件为手机和平板电脑,然后启动应用程序在平板电脑上,只有平板电脑的启动函数被调用。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1.Controller#init functions called&lt;/li&gt;
+&lt;li&gt;2.Profile#launch function called&lt;/li&gt;
+&lt;li&gt;3.Application#launch function called&lt;/li&gt;
+&lt;li&gt;4.Controller#launch functions called&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;When using Profiles it is common to place most of the bootup logic inside the Profile launch function because each Profile has a different set of views that need to be constructed at startup. &lt;/p&gt;
+
+&lt;p&gt;大部分使用配置文件的地方是启动逻辑在配置文件启动功能,因为每个配置文件都有一组不同的视图,需要建立在启动。&lt;/p&gt;
+&lt;h3 id='toc_routing-and-history-support'&gt;Routing and History Support&lt;/h3&gt;
+&lt;p&gt;Sencha Touch 2 has full Routing and History support.  Several of the SDK examples, including the Kitchen Sink, use the history support to enable the back button to easily navigate between screens - especially useful on Android.&lt;/p&gt;
+
+&lt;p&gt;Sencha Touch 2 has full Routing and History support。SDK的几个例子已经能说明,包括厨房的水槽,使用历史支持使后退按钮来轻松地完成导航屏幕之间切换——尤其是在Android上更有用。&lt;/p&gt;
+
+&lt;p&gt;There will be full documentation on the history support from beta 1 onwards.  As of 2.0.0 PR4 the best place to learn about Sencha Touch 2&amp;#39;s history support is kitchen sink example, which features lots of documentation on the routing and state restoration required for history support. &lt;/p&gt;
+
+&lt;p&gt;从beta 1起将会有完整文档的历史支持从beta 1起。截至PR4 2.0.0最好了解Sencha Touch 2的历史支持是厨房的水槽示例,该功能很多的文档是由路由和状态恢复历史所支持的。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>使用和创建Sencha Touch 2构建</title>
+    <link rel="alternate" href="/blog/2012/09/01/using-and-creating-sencha-touch-2-builds/"/>
+    <id>/blog/2012/09/01/using-and-creating-sencha-touch-2-builds/</id>
+    <published>2012-09-01T00:00:00Z</published>
+    <updated>2012-09-01T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;p&gt;Sencha Touch 2有一个全新的类系统，其特点是能够按需动态地加载类。在开发和生产过程中，这能带来许多的好处。&lt;/p&gt;
+
+&lt;p&gt;开发过程中，动态加载意味着你得到一个个文件的堆栈跟踪，这使得你能更容易调试应用程序中的问题。对于生产环境下，我们提供了一个构建工具，使你能够轻松地创建一个最小化的自定义构建，它只包括在应用程序中实际被使用的类，这意味着能为你的用户减少加载时间。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;选择一个构建&lt;/h3&gt;
+&lt;p&gt;Sencha Touch 2提供了5个不同的构建。如果你只是想快速的搭建并运行一个Sencha Touch应用实例，那么最好的方法就是使用&lt;code&gt;sencha-touch-debug.js&lt;/code&gt;在本地进行应用开发，待部署到生成环境时，切换到&lt;code&gt;sencha-touch.js&lt;/code&gt;。其他三个构建有利于在生成环境下进行调试，或在没有自定义构建的情况下运行生成环境，又或是将1.x的应用程序迁移到2.x的应用程序。&lt;/p&gt;
+</summary>
+    <content type="html">&lt;p&gt;Sencha Touch 2有一个全新的类系统，其特点是能够按需动态地加载类。在开发和生产过程中，这能带来许多的好处。&lt;/p&gt;
+
+&lt;p&gt;开发过程中，动态加载意味着你得到一个个文件的堆栈跟踪，这使得你能更容易调试应用程序中的问题。对于生产环境下，我们提供了一个构建工具，使你能够轻松地创建一个最小化的自定义构建，它只包括在应用程序中实际被使用的类，这意味着能为你的用户减少加载时间。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;选择一个构建&lt;/h3&gt;
+&lt;p&gt;Sencha Touch 2提供了5个不同的构建。如果你只是想快速的搭建并运行一个Sencha Touch应用实例，那么最好的方法就是使用&lt;code&gt;sencha-touch-debug.js&lt;/code&gt;在本地进行应用开发，待部署到生成环境时，切换到&lt;code&gt;sencha-touch.js&lt;/code&gt;。其他三个构建有利于在生成环境下进行调试，或在没有自定义构建的情况下运行生成环境，又或是将1.x的应用程序迁移到2.x的应用程序。&lt;/p&gt;
+
+&lt;p&gt;因为每个构建都有其特定的使用目标，所以每个构建都有不同的构建选项。下表可以简单的说明每个构建是被如何配置的：&lt;/p&gt;
+
+&lt;p&gt;//此处为FROM表单图&lt;/p&gt;
+
+&lt;p&gt;需要注意的是,最近3个版本都包含在下载的SDK的&lt;code&gt;builds&lt;/code&gt;目录下。如果上面的表不是让你理解的很明白，这里有一个更加详细的说明，说明每个选项的意思:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Type:&lt;/strong&gt; 是&lt;code&gt;Core&lt;/code&gt;或&lt;code&gt;All&lt;/code&gt; ——
+&lt;code&gt;Core&lt;/code&gt;包括基类，不包括组件。&lt;code&gt;All&lt;/code&gt;则包含了所有。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Loader:&lt;/strong&gt; 无论自动加载是否被激活。只有&lt;code&gt;sencha-touch.js&lt;/code&gt;默认激活。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Minified:&lt;/strong&gt; 是指构建由YUI的压缩机进行压缩。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Comments:&lt;/strong&gt;
+是指构建依然包含JSDoc注释（为了在生产环境下的下载速度，注释通常会被删除）&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Debug:&lt;/strong&gt; 是指构建会给你提示你的错误信息，例如当你错误的配置了一个类时。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Compat:&lt;/strong&gt; 是指与&lt;code&gt;Sencha Touch 1.x&lt;/code&gt;有了更好的兼容性。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;最后，我们应该在开发环境中使用&lt;code&gt;sencha-touch-debug.js&lt;/code&gt;，然后在生产环境下切换到&lt;code&gt;sencha-touch.js&lt;/code&gt;或&lt;code&gt;sencha-touch-all.js&lt;/code&gt;，或者一个自定义的构建。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;创建你自己的构建&lt;/h3&gt;
+&lt;p&gt;在生产的绝大多数情况下，一个Sencha Touch 2应用程序应该使用一个自定义构建，有二个主要原因:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;自定义构建只包括你的应用程序中实际使用的框架类，这样节省了下载时间。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个自定义构建只创建一个文件，这个文件包括你所有的应用程序类，这意味着网络请求时只有一个网络请求。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;原因二特别重要。大多数应用程序有大量的文件（有时会有数百个），请求时会将它们一个接一个的加载，在3G网络，这需要花很长时间。因为由于不同的网络环境，每个请求都有可能导致几百毫秒的延迟，这很容易你的应用程序的整体加载时间增加好几秒。&lt;/p&gt;
+
+&lt;p&gt;为确保你的应用程序在生产环境中加载变快，我们创建了&lt;a href="Sencha%20SDK%20Tools"&gt;http://www.sencha.com/products/sdk-tools&lt;/a&gt;，其中包括一个构建脚本，该脚本会自动执行下面这些动能：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;指出哪些框架类是在应用程序实际被使用的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;指出哪些应用程序类是在应用程序启动时要被加载的。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;以类的正确顺序，将它们组合在一起放在同一个文件里。&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;删除了所有的JSDoc注释，减少文件的大小使其尽可能小。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id='toc_sdk'&gt;安装SDK工具&lt;/h3&gt;
+&lt;p&gt;如果你还没有安装&lt;code&gt;Sencha SDK Tool&lt;/code&gt;，那么你需要先安装，以便你可以创建一个构建。一个快速检验是否已经安装了SDK的方法是打开命令行终端，输入&lt;code&gt;sencha&lt;/code&gt; —— 如果已经安装SDK工具你应该可以看到类似如下的信息：&lt;/p&gt;
+
+&lt;p&gt;//输入“sencha”有SDK工具就可以看到的内容。图&lt;/p&gt;
+
+&lt;p&gt;如果你看到的是错误信息，那么可能是因为没有安装SDK工具。你只需点击下载链接&lt;a href="http://www.sencha.com/products/sdk-tools"&gt;http://www.sencha.com/products/sdk-tools&lt;/a&gt;，双击下载的文件安装，然后重试&lt;code&gt;sencha&lt;/code&gt;命令，这时所有的一切都应该能正常工作了。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;生成一个构建&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt; 建立构建步骤预计将在下一个版本中被简化(2.0.0 Beta
+2)，如果这个版本已经发布，请重新查看本文。&lt;/p&gt;
+
+&lt;p&gt;我们将假设你已经有一个在本地可用的应用程序，你只是想为生产环境建立构建。如果你还没有一个应用程序或不知道这到底是怎么回事，请看&lt;a href="http://www.menglifang.org/blog/2012/08/31/getting-started-with-sencha-touch-2/"&gt;Sencha Touch 2入门&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果你已经有一个在本地工作的应用程序，那让我们继续。我们将使用&lt;code&gt;Sencha Touch SDK&lt;/code&gt;中的Twitter例子来说明这是如何工作的。首先，让我们熟悉这个文件例子的&lt;code&gt;index.html&lt;/code&gt;文件：&lt;/p&gt;
+&lt;div class="highlight html"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;&lt;span class="doctype"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="attribute-name"&gt;http-equiv&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Content-Type&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/html; charset=utf-8&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Twitter&lt;span class="tag"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="attribute-name"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;stylesheet&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;resources/css/application.css&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/css&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/javascript&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;src&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;touch/sencha-touch-debug.js&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/javascript&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;src&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;app.js&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;注意，我们加载了&lt;code&gt;sencha-touch-debug.js&lt;/code&gt;和&lt;code&gt;app.js&lt;/code&gt;，这种组合能让我们的程序在开发环境中使用动态加载机制，并且是SDK工具可以生成一个最小化的构建的基础。一会儿我们将回到这个html文件的内容。&lt;/p&gt;
+
+&lt;p&gt;回到命令行，首先你使用&lt;code&gt;cd&lt;/code&gt;进入到你的应用程序在硬盘上的目录：&lt;/p&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;cd ~/path/to/my/app&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;接下来，你需要为你的应用程序生成一个jsb文件。这个jsb文件列出了应用程序中用到的所有的类。你应该值得庆幸，SDK工具为你做了这件事：&lt;/p&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sencha create jsb -a index.html -p app.jsb3&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;这个命令需要用到你的&lt;code&gt;index.html&lt;/code&gt;文件（在开发过程中，你会用浏览器去浏览的那个文件），找出所有的类的依赖关系并把它们写入到一个名为&lt;code&gt;app.jsb3&lt;/code&gt;的文件。到此，我们只需要再执行一个命令来生成这个构建：&lt;/p&gt;
+&lt;div class="highlight bash"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;sencha build -p app.jsb3 -d ./&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;这个最后的命令将jsb文件中列出的所有文件组合在一个文件中，并将其尽可能的最小化。该命令的输出是一个名为&lt;code&gt;all-classes.js&lt;/code&gt;的文件，这个文件包含了所有的框架类以及你的应用程序类。&lt;/p&gt;
+&lt;h3 id='toc_html'&gt;更新你的HTML文件&lt;/h3&gt;
+&lt;p&gt;最后一步，你需要更新你的应用程序在生产环境中使用的HTML文件，用&lt;code&gt;sencha-touch.js&lt;/code&gt; 代替&lt;code&gt;sencha-touch-debug.js&lt;/code&gt;，加载你新生成的&lt;code&gt;all-classes.js&lt;/code&gt;。这样我们就完成了Twitter示例:&lt;/p&gt;
+&lt;div class="highlight html"&gt;&lt;div class="ribbon"&gt;&lt;/div&gt;&lt;table class="CodeRay"&gt;&lt;tr&gt;
+  &lt;td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7
+8
+9
+&lt;strong&gt;10&lt;/strong&gt;
+11
+12
+&lt;/pre&gt;&lt;/td&gt;
+  &lt;td class="code"&gt;&lt;pre&gt;&lt;span class="doctype"&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;meta&lt;/span&gt; &lt;span class="attribute-name"&gt;http-equiv&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;Content-Type&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;content&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/html; charset=utf-8&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;Twitter&lt;span class="tag"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;link&lt;/span&gt; &lt;span class="attribute-name"&gt;rel&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;stylesheet&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;href&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;resources/css/application.css&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/css&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/javascript&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;src&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;touch/sencha-touch.js&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/javascript&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;src&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;all-classes.js&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class="tag"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="attribute-name"&gt;type&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;text/javascript&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt; &lt;span class="attribute-name"&gt;src&lt;/span&gt;=&lt;span class="string"&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;span class="content"&gt;app.js&lt;/span&gt;&lt;span class="delimiter"&gt;&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;&lt;span class="tag"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class="tag"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;p&gt;为了不总是改变&lt;code&gt;index.html&lt;/code&gt;文件，通常的做法是创建一个名为&lt;code&gt;index-production.html&lt;/code&gt;的文件，该文件中包含如上所述的代码。许多开发人员会编写一个简单的部署脚本，将应用程序复制到一个部署文件夹中，并自动将&lt;code&gt;index-production.html&lt;/code&gt;重命名为&lt;code&gt;index.html&lt;/code&gt;，以便与这个构建可以很容易的上传。&lt;/p&gt;
+&lt;h3 id='toc_'&gt;对于开发者来说的变化&lt;/h3&gt;
+&lt;p&gt;虽然这只是几个步骤，我们期望下一个Sencha Touch版本能够同时改进工作流程和输出。如果你正在使用Sencha Touch 2.0 beta 1构建，当你升级了以后，请务必重新阅读该文档，因为它的步骤和输出可能会稍有变化。&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>Sencha Touch 2 入门</title>
     <link rel="alternate" href="/blog/2012/08/31/getting-started-with-sencha-touch-2/"/>

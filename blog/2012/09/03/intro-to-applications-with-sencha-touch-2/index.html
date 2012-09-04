@@ -1,0 +1,417 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge;chrome=1' />
+    <title>MENGLIFANG.ORG - Sencha Touch 2的应用</title>
+    <link href="/stylesheets/ember.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/highlight.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/site.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="/">Menglifang</a>
+        <div id="sns">
+          <a href="https://github.com/menglifang">Github</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="content-wrapper">
+      
+      
+        <div id="sidebar">
+          <div id="articles">
+  <h2>Recent Articles</h2>
+  <ol>
+    
+      <li><a href="/blog/2012/09/03/building-your-first-sencha-touch-app/">建立你的第一个sencha touch应用程序</a> <span>Sep  3</span></li>
+    
+      <li><a href="/blog/2012/09/03/intro-to-applications-with-sencha-touch-2/">Sencha Touch 2的应用</a> <span>Sep  3</span></li>
+    
+      <li><a href="/blog/2012/09/01/using-and-creating-sencha-touch-2-builds/">使用和创建Sencha Touch 2构建</a> <span>Sep  1</span></li>
+    
+      <li><a href="/blog/2012/08/31/getting-started-with-sencha-touch-2/">Sencha Touch 2 入门</a> <span>Aug 31</span></li>
+    
+      <li><a href="/blog/2012/07/17/set-up-moosefs-on-ubuntu-12-04-server-amd64/">在Ubuntu Server 12.04 LTS AMD64下安装Moosefs</a> <span>Jul 17</span></li>
+    
+      <li><a href="/blog/2012/07/12/set-up-ruby-ide-on-ubuntu-12-04-server-amd64/">Ubuntu 12.04 LTS AMD64下搭建Ruby集成开发环境</a> <span>Jul 12</span></li>
+    
+  </ol>
+</div>
+
+<div id="tags">
+  <h2>Tags</h2>
+  <ol>
+    
+      <li><a href="/blog/tags/ruby.html">ruby (1)</a></li>
+    
+      <li><a href="/blog/tags/rvm.html">rvm (1)</a></li>
+    
+      <li><a href="/blog/tags/vim.html">vim (1)</a></li>
+    
+      <li><a href="/blog/tags/zsh.html">zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/janus.html">janus (1)</a></li>
+    
+      <li><a href="/blog/tags/ubuntu.html">ubuntu (2)</a></li>
+    
+      <li><a href="/blog/tags/javascript.html">javascript (5)</a></li>
+    
+      <li><a href="/blog/tags/rake.html">rake (1)</a></li>
+    
+      <li><a href="/blog/tags/oh-my-zsh.html">oh-my-zsh (1)</a></li>
+    
+      <li><a href="/blog/tags/git.html">git (1)</a></li>
+    
+      <li><a href="/blog/tags/github.html">github (1)</a></li>
+    
+      <li><a href="/blog/tags/linux.html">linux (1)</a></li>
+    
+      <li><a href="/blog/tags/dfs.html">dfs (1)</a></li>
+    
+      <li><a href="/blog/tags/sencha-touch.html">sencha touch (4)</a></li>
+    
+  </ol>
+</div>
+
+<div id="years">
+  <h2>By Year</h2>
+  <ol>
+    
+      <li><a href="/blog/2012.html">2012 (6)</a></li>
+    
+  </ol>
+</div>
+
+          <div id="back-to-top"><a href="#">&#11014; Back to Top</a></div>
+        </div>
+      
+      <div id="content" class="has-sidebar">
+          <article class="blog-post">
+    <h1>Sencha Touch 2的应用</h1>
+
+    <p>Sencha Touch 2 is optimized around building applications that work across multiple platforms. To make the writing of applications as simple as possible, we provide a simple but powerful application architecture that leverages the MVC (Model View Controller) pattern. This approach keeps your code clean, testable and easy to maintain, and provides you with a number of benefits when it comes to writing your apps:</p>
+
+<p>为了让写应用变的更简单，Sencha Tcouch 2构建了跨越多个平台的优化程序。利用MVC(模型-视图-控制器)模型，为我们提供了一个简单但又非常强大的应用程序体系。这种方式让你在书写代码的时候能够很整洁，可测试性强和易于维护，为你在写应用程序的时候提供了很多好处。</p>
+
+<p>History Support: full back button support inside your app, and any part of your app can be linked to</p>
+
+<ul>
+<li>History Support:在你的应用程序的任何部分都支持返回功能，只要你单击后退按钮就可以返回你以前浏览过的应用程序。</li>
+</ul>
+
+<p>Deep Linking: share deep links that open any screen in your app, just like linking to a web page</p>
+
+<ul>
+<li>Deep Linking:通过分享的深度链接，可以在如何一个屏幕上打开你的应用程序。就想直接链接到一个web首页一样</li>
+</ul>
+
+<p>Device Profiles: easily customize your application&#39;s UI for phones, tablets and other devices while sharing all of the common code</p>
+
+<ul>
+<li>Device Profiles:能够轻松的定义你的应用程序在什么样的用户界面上显示如手机,平板电脑或是其他设备。同时也能共享所有的通用代码</li>
+</ul>
+<h3 id='toc_'>应用程序的结构</h3>
+<p>An Application is a collection of Models, Views, Controllers, Stores and Profiles, plus some additional metadata specifying things like application icons and launch screen images.</p>
+
+<p>一个应用程序是一个集合，它包括Models, Views, Controllers, Stores and Profiles,在加上一些额外的应用程序图标和启动画面图像数据中指点的类</p>
+
+<p>Models: represent a type of object in your app - for example an e-commerce app might have models for Users, Products and Orders</p>
+
+<ul>
+<li>Models:在你的应用程序中是一个类型的对象，例如一个电子商务应用程序中可能是用户，产品订单</li>
+</ul>
+
+<p>Views: are responsible for displaying data to your users and leverage the built in Components in Sencha Touch</p>
+
+<ul>
+<li>Views:利用内置的Sencha Touch组件，负责为用户显示数据</li>
+</ul>
+
+<p>Controllers: handle interaction with your application, listening for user taps and swipes and taking action accordingly</p>
+
+<ul>
+<li>Controllers:处理每次用户要处理的事件，和应用程序交付并采取相应的处理</li>
+</ul>
+
+<p>Stores: are responsible for loading data into your app and power Components like Lists and DataViews</p>
+
+<ul>
+<li>Stores:负责加载数据到应用程序和组件中。如列表和DataViews</li>
+</ul>
+
+<p>Profiles: enable you to easily customize your app&#39;s UI for tablets and phones while sharing as much code as possible</p>
+
+<ul>
+<li>Profiles:够让你轻松定义你的应用程序在何种界面上显示，如平板电脑或者手机。同时能共享你的共用代码</li>
+</ul>
+
+<p>The Application is usually the first thing you define in a Sencha Touch application, and looks something like this:</p>
+
+<p>通常你可以先确定一个Sencha Touch应用程序，可以和这个例子一样</p>
+<div class="highlight javascript"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre>Ext.application({
+    <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">MyApp</span><span class="delimiter">'</span></span>,
+    <span class="key">models</span>: [<span class="string"><span class="delimiter">'</span><span class="content">User</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Product</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">nested.Order</span><span class="delimiter">'</span></span>],
+    <span class="key">views</span>: [<span class="string"><span class="delimiter">'</span><span class="content">OrderList</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">OrderDetail</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Main</span><span class="delimiter">'</span></span>],
+    <span class="key">controllers</span>: [<span class="string"><span class="delimiter">'</span><span class="content">Orders</span><span class="delimiter">'</span></span>],
+    <span class="function">launch</span>: <span class="keyword">function</span>() {
+        Ext.create(<span class="string"><span class="delimiter">'</span><span class="content">MyApp.view.Main</span><span class="delimiter">'</span></span>);
+    }
+})</pre></td>
+</tr></table>
+</div>
+<p>The name is used to create a single global namespace for your entire application, including all of its models, views, controllers and other classes. For example, an app called MyApp should have its constituent classes follow the pattern MyApp.model.User, MyApp.controller.Users, MyApp.view.Main etc. This keeps your entire app under a single global variable so minimizes the chance of other code on the page conflicting with it.</p>
+
+<p>这个<a href="%E5%90%8D%E5%AD%97">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-name</a>是为整个应用程序创建一个单一的全局命名空间,包括所有的models, views, controllers and other classes。例如,一款叫做“MyApp的应用程序应该遵的循模式MyApp.model.User、Myapp.controller.User、Myapp.view.Main等等。这使你的整个应用程序处于在一个全局变量,这会让你的代码和其他页面上的代码有最少可能的相互冲突。</p>
+
+<p>The Application uses the defined models, views and controllers configurations to automatically load those classes into your app. These follow a simple file structure convention - models are expected to be in the app/model directory, controllers in the app/controller directory and views inside the app/view directory - for example app/model/User.js, app/controllers/Orders.js and app/view/Main.js.</p>
+
+<p>应用程序使用已经定义好的<a href="models">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-models</a>, <a href="views">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-views</a> and <a href="controllers">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-controllers</a> configurations来自动加载这些类到你的应用程序。这些应该遵循一个简单的文件结构公约——模型预计在app/model directory、控制器在app / controllerdirectory和视图在app /view directory——例如app /model/User.js,app / controllers /Order.js和app /view/Main.js。</p>
+
+<p>Note that one of the models we specified was different to the others - we specified the full class name (&quot;MyApp.model.nested.Order&quot;). We&#39;re able to specify the full class name for any of those configurations if we don&#39;t follow the normal naming conventions. See the Dependencies section of the Ext.app.Application docs for full details on how to specify custom dependencies.</p>
+
+<p>注意,我们指定的一个<a href="%E6%A8%A1%E5%9E%8B">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-models</a>是和其他人不同的——我们指定完整的类名称(“MyApp.model.nested.Order”)。如果我们不遵循正常的命名约定，我们能够自己指定完整的类名的配置。看<a href="%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E9%83%A8%E5%88%86">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application</a>的<a href="Ext.app.Application">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application</a>。应用程序文档详细介绍如何指定自定义依赖项。</p>
+<h3 id='toc_'>控制器</h3>
+<p>Controllers are the glue the binds an application together. They listen for events fired by the UI and then take some action on it. This helps to keep our code clean and readable, and separates the view logic from the control logic.</p>
+
+<p>控制器是一个应用程序绑定在一起的粘合剂。它们监听用户界面触发的事件,采取不同的处理。这样有助于使我们的代码清晰和可读性,同时从控制逻辑中分离出视图逻辑。</p>
+
+<p>For example, let&#39;s say you require users to log in to your app via a login form. The view in this case is the form with all of its fields and other controls. A controller should listen to tap event on the form&#39;s submit button and then perform the authentication itself. Any time we deal with manipulating data or state, the controller should be the class that activates that change, not a view.</p>
+
+<p>例如,让我们假设你需要你的用户通过你的应用程序中的一个表单登录到你的应用程序。在这种情况下视图就是在本例中所有字段和其他控件的一个集合体。一个控制器应该<a href="%E7%9B%91%E5%90%AC">http://docs.sencha.com/touch/2-0/#!/api/Ext.Button-event-tap</a>表单的提交<a href="%E6%8C%89%E9%92%AE">http://docs.sencha.com/touch/2-0/#!/api/Ext.Button</a>的提交事件,然后去执行身份验证。任何时候我们处理操作数据或状态,控制器应该是类,激活,改变,而不是一个视图。</p>
+
+<p>Controllers expose a small but powerful set of features, and follow a few simple conventions. Each Controller in your application is a subclass of Ext.app.Controller (though you can subclass existing Controllers, so long as it inherits from Ext.app.Controller at some point). Controllers exist in the MyApp.controller.* namespace - for example if your app had a Sessions controller it would be called MyApp.controller.Sessions and exist in the file app/controller/Sessions.js.</p>
+
+<p>控制器拥有一个小而强大的的特性集,并且它还要遵循一些简单的惯例。在你的应用程序中每个控制器的一个子类都有<a href="Ext.app.Controller">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller</a>(尽管你现有的子类可以有控制器,但在某种程度上，控制器只它继承自<a href="Ext.app.Controller">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller</a>)。控制器存在于myapp.controller.*namespace——例如,如果你的应用程序有一个会话控制器将被称为MyApp.controller.Sessions。会话控制器存在于文件app / controller /Sessions.js。</p>
+
+<p>Although each Controller is a subclass of Ext.app.Controller, each one is instantiated just once by the Application that loaded it. There is only ever one instance of each Controller at any one time and the set of Controller instances is managed internally by the Application. Using Application&#39;s controllers config (as we do above) loads all of the Controllers and instantiates them automatically.</p>
+
+<p>尽管每个控制器的一个子类<a href="Ext.app.Controller">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller</a>。每个控制器在<a href="Application">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application</a>中只有一次被实例化去加载它。There is only ever one instance of each Controller at any one time and the set of Controller instances is managed internally by the Application.。使用应用程序的控制器配置(如我们做以上)自动加载所有的控制器和实例化它们。</p>
+
+<p>一个小例子</p>
+
+<p>Here&#39;s how we might quickly define the Sessions controller described above. We&#39;re using 2 Controller configurations here - refs and control. Refs are an easy way to find Components on your page - in this case the Controller will look for all Components that match the formpanel xtype and assign the first one it finds to the loginForm property. We&#39;ll use that property in the doLogin function later.</p>
+
+<p>这是我们如何快速定义上面描述的会话控制器。我们在这里使用的是2控制器配置——<a href="%E8%A3%81%E5%88%A4">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller-cfg-refs</a>和<a href="%E6%8E%A7%E5%88%B6">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Controller-cfg-control</a>。裁判会使用一个简单的方法来找到你的页面上的组件——在本例中,控制器将寻找所有匹配的<a href="formpanel">http://docs.sencha.com/touch/2-0/#!/api/Ext.form.Panel</a> xtype组件和找到配置的第一个loginForm部分。我们将在doLogin函数之后使用这个属性。</p>
+
+<p>The second thing it does is set up a control configuration. Just like refs, this uses a ComponentQuery selector to find all formpanel xtypes that contain a button inside them (for example, this will find the Submit button in our hypothetical login form). Whenever any button of this type fires its tap event, our Controller&#39;s doLogin function will be called:</p>
+
+<p>第二件事就是为它建立一个控制配置。就像裁判,这使用了一个ComponentQuery选择器来找到所有formpanel xtypes,这里面包含一个按钮(例如,这将找到我们登录表单中Submit按钮)。每当任何此类的按钮触发事件被激活,我们控制器的doLogin函数将被调用:</p>
+<div class="highlight javascript"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td>
+  <td class="code"><pre>Ext.define(<span class="string"><span class="delimiter">'</span><span class="content">MyApp.controller.Sessions</span><span class="delimiter">'</span></span>, {
+    <span class="key">extend</span>: <span class="string"><span class="delimiter">'</span><span class="content">Ext.app.Controller</span><span class="delimiter">'</span></span>,
+    <span class="key">config</span>: {
+        <span class="key">refs</span>: {
+            <span class="key">loginForm</span>: <span class="string"><span class="delimiter">'</span><span class="content">formpanel</span><span class="delimiter">'</span></span>
+        },
+        <span class="key">control</span>: {
+            <span class="key"><span class="delimiter">'</span><span class="content">formpanel button</span><span class="delimiter">'</span></span>: {
+                <span class="key">tap</span>: <span class="string"><span class="delimiter">'</span><span class="content">doLogin</span><span class="delimiter">'</span></span>
+            }
+        }
+    },
+    <span class="function">doLogin</span>: <span class="keyword">function</span>() {
+        <span class="keyword">var</span> form   = <span class="local-variable">this</span>.getLoginForm(),
+            values = form.getValues();
+        MyApp.authenticate(values);
+    }
+});</pre></td>
+</tr></table>
+</div>
+<p>The doLogin function itself is quite straightforward. Because we defined a &#39;loginForm&#39; ref, the Controller automatically generates a getLoginForm function that returns the formpanel that it matches. Once we have that form reference we just pull the values (username and password) out of it and pass them to an authenticate function. That&#39;s most of what Controllers ever do - listen for events fired (usually by the UI) and kick off some action - in this case authenticating.</p>
+
+<p>doLogin函数本身是很简单的。因为我们定义了一个“loginForm“ref,控制器会自动生成一个getLoginForm函数,它返回formpanel进行匹配。一旦我们有,我们只需要将其引用,并将其值(用户名和密码)传递到一个身份验证功能。这是大多数做控制器——侦听事件(通常通过UI)和启动一些事件的开始——在这种情况下进行身份验证。</p>
+
+<p>For more on what Controllers are and what capabilities they possess see the controllers guide.</p>
+
+<p>更多关于控制器和控制器具体有那些功能，请查看<a href="%E6%8E%A7%E5%88%B6%E5%99%A8%E6%8C%87%E5%8D%97">http://docs.sencha.com/touch/2-0/#!/guide/controllers</a>。</p>
+<h3 id='toc_store'>Store</h3>
+<p>Stores are an important part of Sencha Touch and power most of the data-bound widgets. At its simplest, a Store is not much more than an array of Model instances. Data-bound Components like List and DataView just render one item for each Model instance in the Store. As Model instances are added or removed from the Store events are fired, which the data-bound Components listen to and use to update themselves.</p>
+
+<p>Stores are an important part of Sencha Touch and power most of the data-bound widgets. At its simplest。简单来说,商店是不超过一个数组的模型实例。数据绑定的组件比如<a href="list">http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.List</a>和<a href="DataView">http://docs.sencha.com/touch/2-0/#!/api/Ext.dataview.DataView</a>只是呈现一个Stores对每个模型的实例化。如果Store的事件被触发作为模型的实例将被添加或删除,而监听数据绑定的组件将自己更新。</p>
+
+<p>While the Stores guide has much more information on what Stores are and how they fit in with Components in your app, there are a couple of specific integration points with your Application instance that you should be aware of. </p>
+
+<p>尽管<a href="Stores%20guide">http://docs.sencha.com/touch/2-0/#!/guide/stores</a>有很多关于store的信息以及它们如何去适应你的应用程序中的组件,还是有几个特定的集成点与你的<a href="%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application</a>实例,你应该知道的。</p>
+<h3 id='toc_'>配置文件</h3>
+<p>Sencha Touch operates across a wide range of devices with differing capabilities and screen sizes.  A user interface that works well on a tablet may not work very well on a phone and vice versa so it makes sense to provide customized views for different device types.  However, we don&#39;t want to have to write our application multiple times just to provide a different UI - we&#39;d like to share as much code as possible. </p>
+
+<p>Sencha Touch能在不同的功能和屏幕尺寸的设备上工作。但一个运作良好的用户界面,在平板电脑上能很好的工作却在电话上不能良好的工作,反之亦然,因此有必要为不同的设备提供定制的视图。然而,我们不想在我们的应用程序中写多次仅是为了提供一个不同的UI——我们想尽可能多的分享代码。</p>
+
+<p>Device Profiles are simple classes that enable you to define the different types of devices supported by your app and how they should be handled differently.  They are opt-in, so you can develop your app without profiles at first and add them in later, or never use them at all. Each profile simply defines an isActive function that should return true if that profile should be active on the current device, plus a set of additional models, views and controllers to load if that profile is detected.</p>
+
+<p>为不同的设备写配置文件是一个简单类,使你能够定义支持不同类型的设备,让应用程序以能够选择它们应该如何处理。所以你在开始开发你的应用程序的时候可以没有配置文件,以后在为它们添加,或从不使用它们。每个概要文件仅仅定义了一个函数,如果概要文件在当前设备上运行或者一组额外的<a href="models">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-models</a>, <a href="views">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-views</a> and <a href="controllers">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-cfg-controllers</a>来加载，那么它应该返回<a href="true%20isActive">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile-method-isActive</a>。</p>
+
+<p>To app Profile support to your app you just need to tell your Application about those Profiles and then create Ext.app. Profile subclasses for them: </p>
+
+<p>应用程序的配置文件要支持你的应用程序,你只需要告诉你的应用程序这些配置文件,然后创建<a href="ext.app.profile">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Profile</a>为它们的子类:</p>
+<div class="highlight javascript"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>Ext.application({
+    <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">MyApp</span><span class="delimiter">'</span></span>,
+    <span class="key">profiles</span>: [<span class="string"><span class="delimiter">'</span><span class="content">Phone</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Tablet</span><span class="delimiter">'</span></span>],
+    <span class="comment">//as before</span>
+});</pre></td>
+</tr></table>
+</div>
+<p>By defining the profiles above the Application will load app/profile/Phone. js and app/profile/Tablet.js.  Let&#39;s say that the tablet version of the app enables additional capabilities - for example managing groups.  Here&#39;s an example of how we might define the Tablet profile: </p>
+
+<p>通过定义概要文件应用程序将加载app/ profile /Phone.js和app / profile /Table.js。这就是说,平板电脑版本的应用程序允许有额外的功能,例如管理组织。下面是一个示例,介绍我们如何定义平板电脑配置文件:</p>
+<div class="highlight javascript"><div class="ribbon"></div><table class="CodeRay"><tr>
+  <td class="line-numbers" title="double click to toggle" ondblclick="with (this.firstChild.style) { display = (display == '') ? 'none' : '' }"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+</pre></td>
+  <td class="code"><pre>Ext.define(<span class="string"><span class="delimiter">'</span><span class="content">MyApp.profile.Tablet</span><span class="delimiter">'</span></span>, {
+    <span class="key">extend</span>: <span class="string"><span class="delimiter">'</span><span class="content">Ext.app.Profile</span><span class="delimiter">'</span></span>,
+    <span class="key">config</span>: {
+        <span class="key">controllers</span>: [<span class="string"><span class="delimiter">'</span><span class="content">Groups</span><span class="delimiter">'</span></span>],
+        <span class="key">views</span>: [<span class="string"><span class="delimiter">'</span><span class="content">GroupAdmin</span><span class="delimiter">'</span></span>],
+        <span class="key">models</span>: [<span class="string"><span class="delimiter">'</span><span class="content">MyApp.model.Group</span><span class="delimiter">'</span></span>]
+    },
+    <span class="function">isActive</span>: <span class="keyword">function</span>() {
+        <span class="keyword">return</span> Ext.os.is.Tablet;
+    }
+});</pre></td>
+</tr></table>
+</div>
+<p>The isActive function will return true whenever the application is run on what Sencha Touch determines to be a tablet.  This is a slightly subjective determination because there is a near-continuous spectrum of device shapes and sizes with no clear cutoff between phones and tablets.  Because there is no foolproof way to state which devices are tablets and which are phones, Sencha Touch&#39;s Ext.os.is. Tablet is set to true when running on an iPad and false otherwise.  If you need more fine grained control it&#39;s easy to provide any implementation you like inside your isActive function, so long as it returns true or false. </p>
+
+<p>如果应用程序决定运行是Sencha Touch平板电脑，那么isActive函数将返回true。这是一个有点主观判断,因为有一个不明确的频谱形状和尺寸的设备在手机和平板电脑不断切换。因为没有绝对安全方式说明哪些设备是平板电脑和那些是手机,当运行在一台iPad的时候Sencha Touch的ext.os.is设置为true时,否则则返回false。如果你需要更多精细的控制也可以很容易实现，只要你喜欢在你isActive函数,它只返回true或false。</p>
+
+<p>You should make sure that only one of your Profiles returns true from its isActive function.  If more than one of them returns true, only the first one that does so will be counted and the rest ignored.  The first one that returns true will be set as the Application&#39;s currentProfile, which can be queried at any time. </p>
+
+<p>你应该确保你的配置文件中，只有一个返回true 的isActive功能。如果不止一个返回true,那么只有第一个,会被系统记录,其余的会被忽视。第一个返回true将被设置为应用程序的<a href="currentProfile">http://docs.sencha.com/touch/2-0/#!/api/Ext.app.Application-cfg-currentProfile</a>,这样它就能被随时的查询。</p>
+
+<p>If the detected currentProfile has defined additional models, views, controllers and stores these will be automatically loaded by the Application, along with all of the models, views and controllers defined on the Application itself.  However, all of the dependencies named in the Profile will be prepended with the Profile name unless the fully-qualified class name is provided.  For example: </p>
+
+<p>如果检测到currentProfile附近有定义的models, views, controllers and stores这些将会被自动加载到应用程序,以及应用程序本身所有定义的models, views and controllers。然而,所有的依赖在命名文件中的文件将被添加到配置文件,除非完全合格的类名。例如:</p>
+
+<ul>
+<li>views: [&#39;GroupAdmin&#39;] will load app/view/tablet/GroupAdmin.js</li>
+<li>controllers: [&#39;Groups&#39;] will load app/controller/tablet/Groups.js</li>
+<li>models: [&#39;MyApp.model.Group&#39;] will load app/model/Group.js</li>
+</ul>
+
+<p>Most of the time a Profile will only define additional controllers and views as the models and stores are typically shared between all variants of the app. For a more detailed discussion of Profiles see the device profiles guide. </p>
+
+<p>大多数时候一个配置文件只会额外定义的控制器和视图的模型，和商店通常是通过不同的应用能够程序来共享应用。如果需要更详细的讨论配置文件可以去看<a href="%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%AE%E6%8C%87%E5%AF%BC">http://docs.sencha.com/touch/2-0/#!/guide/profiles</a>。</p>
+<h3 id='toc_'>启动</h3>
+<p>Each Application can define a launch function, which is called as soon as all of your app&#39;s classes have been loaded and the app is ready to be launched.  This is usually the best place to put any application startup logic, typically creating the main view structure for your app. </p>
+
+<p>当你所有的应用程序的类都已经加载和应用程序都准备好了，那么应用程序可以定义一个启动功能。这通常是最好的场合来存放你的应用程序启动逻辑,让你的应用程序创建主要视图结构。</p>
+
+<p>In addition to the Application launch function, there are two other places you can put app startup logic.  Firstly, each Controller is able to define an init function, which is called before the Application launch function.  Secondly, if you are using Device Profiles, each Profile can define a launch function, which is called after the Controller init functions but before the Application launch function.</p>
+
+<p>除了应用程序启动功能,另外还有两个地方你可以定义应用程序启动逻辑。首先,每个控制器要能够定义一个init函数,它被称为应用程序启动之前的函数。其次,如果你正在使用的设备配置文件,每个文件也可以定义一个启动功能,但在应用程序启动功能前，之后调用控制器init函数。</p>
+
+<p>Note that only the active Profile has its launch function called - for example if you define profiles for Phone and Tablet and then launch the app on a tablet, only the Tablet Profile&#39;s launch function is called.</p>
+
+<p>注意,只有当前文件有被称为启动功能——例如,如果你定义配置文件为手机和平板电脑,然后启动应用程序在平板电脑上,只有平板电脑的启动函数被调用。</p>
+
+<ul>
+<li>1.Controller#init functions called</li>
+<li>2.Profile#launch function called</li>
+<li>3.Application#launch function called</li>
+<li>4.Controller#launch functions called</li>
+</ul>
+
+<p>When using Profiles it is common to place most of the bootup logic inside the Profile launch function because each Profile has a different set of views that need to be constructed at startup. </p>
+
+<p>大部分使用配置文件的地方是启动逻辑在配置文件启动功能,因为每个配置文件都有一组不同的视图,需要建立在启动。</p>
+<h3 id='toc_routing-and-history-support'>Routing and History Support</h3>
+<p>Sencha Touch 2 has full Routing and History support.  Several of the SDK examples, including the Kitchen Sink, use the history support to enable the back button to easily navigate between screens - especially useful on Android.</p>
+
+<p>Sencha Touch 2 has full Routing and History support。SDK的几个例子已经能说明,包括厨房的水槽,使用历史支持使后退按钮来轻松地完成导航屏幕之间切换——尤其是在Android上更有用。</p>
+
+<p>There will be full documentation on the history support from beta 1 onwards.  As of 2.0.0 PR4 the best place to learn about Sencha Touch 2&#39;s history support is kitchen sink example, which features lots of documentation on the routing and state restoration required for history support. </p>
+
+<p>从beta 1起将会有完整文档的历史支持从beta 1起。截至PR4 2.0.0最好了解Sencha Touch 2的历史支持是厨房的水槽示例,该功能很多的文档是由路由和状态恢复历史所支持的。</p>
+
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'menglifang'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+       dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+       })();
+     </script>
+     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </article>
+
+      </div>
+    </div> 
+
+    <div id="footer">
+      <div class="info">
+        <div class="copyright">&copy; 2011-2012 北京梦立方网络科技有限公司</div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6183006-6']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+    </script>
+  </body>
+</html>
